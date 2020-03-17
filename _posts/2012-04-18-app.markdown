@@ -8,7 +8,7 @@ permalink: app
 
 *Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
 
-**Make sure you have Rails installed.** [**Follow the installation guide**](/install) to get set up.
+**Sisteminizde Rails kurulu olduğundan emin olun.** [**Kurulum klavuzunu takip ederek**](/install) Rails kurabilirsiniz.
 
 
 ## Get to know the tools
