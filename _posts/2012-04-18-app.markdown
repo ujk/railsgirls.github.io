@@ -13,8 +13,6 @@ permalink: app
 
 ## Araçları tanıyalım
 
-<div class="indent" markdown="1">
-
 <h3><i class="icon-text-editor">&nbsp;</i></h3>
 
 ### Text Editörü
@@ -34,24 +32,21 @@ permalink: app
 
 * (Firefox, Safari, Chrome) uygulamanızı görüntülemek için kullanılabilir.
 
-</div>
-
 Bu klavuz boyunca şöyle formatlanmış kod parçaları göreceksiniz:
 
-{% highlight sh %}
+```ruby
 some code
-{% endhighlight %}
+```
 
 <div>
-<p>This means that the highlighted text is code and it probably needs to be either executed or inserted into one of your project files. The icon next to the highlighted text will let you know which tool to use.</p>
-<p>For example, if you see a terminal icon next to the highlight, like in the example above, you will need to copy the code and paste it into your Terminal (Mac) / Command Prompt (Windows).</p>
+<p>Bunun anlamı gösterilen yazı bir koddur ve ya çalıştırılacaktır ya da dosyalarınızdan birine yazılacaktır. </p>
 </div>
 
-Need some reminders along the way? Check out this [handy cheatsheet for Ruby, Rails, console etc.](http://www.pragtob.info/rails-beginner-cheatsheet/)
+Çalışırken komutlar hakkında yardıma ihtiyaç duyarsanız şu belgeden yararlanabilirsiniz [handy cheatsheet for Ruby, Rails, console etc.](http://www.pragtob.info/rails-beginner-cheatsheet/)
 
-### Important
+### Önemli
 
-It is important that you select the instructions specific to your operating system - the commands you need to run on a Windows computer are slightly different to Mac or Linux. If you're having trouble check the Operating System switcher at the bottom of the commands. In case you're using a cloud service (e.g. Codenvy), you need to run the Linux commands even if you are on a Windows computer.
+İşletim sisteminize uygun komutları seçmeniz önemlidir - Windows, Mac ya da Linux konsollarında komutlar arasında bazı küçük farklar olabilir.  If you're having trouble check the Operating System switcher at the bottom of the commands. In case you're using a cloud service (e.g. Codenvy), you need to run the Linux commands even if you are on a Windows computer.
 
 ## *1.* Creating the application
 
