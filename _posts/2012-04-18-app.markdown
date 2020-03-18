@@ -11,32 +11,32 @@ permalink: app
 **Sisteminizde Rails kurulu olduğundan emin olun.** [**Kurulum klavuzunu takip ederek**](/install) Rails kurabilirsiniz.
 
 
-## Get to know the tools
+## Araçları tanıyalım
 
 <div class="indent" markdown="1">
 
 <h3><i class="icon-text-editor">&nbsp;</i></h3>
 
-### Text Editor
+### Text Editörü
 
-* [Atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com),  Vim and Emacs are examples of text editors your can use for writing code and editing files.
+* [Atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com),  Vim ve Emacs kod yazmak ve dosyaları düzenlemek üzere kullanabileceğiniz text editörleridir.
 
 <h3><i class="icon-prompt">&nbsp;</i></h3>
 
-### Terminal (known as Command Prompt on Windows)
+### Konsol (Windows'ta Komut İsteği olarak bilinir)
 
-* Where you start the rails server and run commands.
-* This is a program on your computer that you can get to through your Spotlight search on Mac (search for "Terminal"), or by searching for the "Command Prompt" in your programs on Windows.
+* Rails server'ı çalıştırabileceğiniz veya Rails komutlarını çalıştırabileceğiniz yer.
+* Mac bilgisayarınızda "Terminal" arayarak, Windows bilgisayarınızda "Komut İstemi" arayarak bu programa ulaşabilirsiniz.
 
 <h3><i class="icon-browser">&nbsp;</i></h3>
 
-### Web browser
+### Web tarayıcı
 
-* (Firefox, Safari, Chrome) for viewing your application.
+* (Firefox, Safari, Chrome) uygulamanızı görüntülemek için kullanılabilir.
 
 </div>
 
-Throughout this guide you will see bits of code formatted like so:
+Bu klavuz boyunca şöyle formatlanmış kod parçaları göreceksiniz:
 
 {% highlight sh %}
 some code
