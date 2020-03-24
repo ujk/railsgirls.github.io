@@ -1,57 +1,67 @@
 ---
 layout: default
-title: Commenting functionality for the Rails Girls app
+title: Rails Girls uygulamasına yorum eklenmesi
 permalink: commenting
 ---
-# Commenting for Rails Girls App
+# Rails Girls Uygulamanıza Kullanıcı Yorumu Eklemek
 *Created by Janika Liiv, [@janikaliiv](https://twitter.com/janikaliiv)*
 
-We are going to add the possibility to comment on ideas in your *railsgirls* application.
+*railsgirls* uygulamanızda yayınlanan fikirlere yorum yapma özelliği ekleyeceğiz.
 
-The instructions for installing rails and building the ideas app can be found [here](/app).
+Rails kurulumu ve Fikirler uygulamasının yapımı hakkında bilgiyi [burada](/app) bulabilirsiniz.
 
-## *1.* Create comment scaffold
+## *1.* comment scaffold oluşturun
 
-Create a comment scaffold, with the commentator name, the comment body (contents of the comment) and with the reference to the ideas table (`idea_id`).
+Yorumcunun adı, yorumun içeriği ve ideas tablosunda yorumyapılan fikire bir referans (`idea_id`) içeren bir comment scaffold üretelim.
+
 {% highlight sh %}
 rails g scaffold comment user_name:string body:text idea_id:integer
 {% endhighlight %}
-This will create a migration file that lets your database know about the new comments table. Run the migrations using
+
+Bu komut ayrıca comments tablosu üretmek için bir migrasyon dosyası oluşturacaktır. Migrasyonu çalıştırmak için şu komutu girin
+
 {% highlight sh %}
 rails db:migrate
 {% endhighlight %}
 
-## *2.* Add relations to models
+## *2.* Modellere veri bağlantısı ekleyin
 
-You need to make sure that Rails knows the relation between objects (ideas and comments).
-As one idea can have many comments we need to make sure the idea model knows that.
-Open `app/models/idea.rb` and below the row
+Rails'in tablolar arasındaki bağlantıyı bilmesi gerekir (ideas ve comments tabloları).
+Bir fikir birçok yoruma sahip olabileceği için idea modelinin bunu bilmesini sağlamalıyız.
+`app/models/idea.rb` dosyasını editörde açın ve şu satırın altına
+
 {% highlight ruby %}
 class Idea < ApplicationRecord
 {% endhighlight %}
-add
+
+şunu ekleyin
+
 {% highlight ruby %}
 has_many :comments
 {% endhighlight %}
 
-The comment also has to know that it belongs to an idea. So open `app/models/comment.rb` and below
+comment modelinin de yorumların bir fikire ait olduğunu bildirmemiz gerekir. `app/models/comment.rb` dosyasını açın ve şu satırın altına
+
 {% highlight ruby %}
 class Comment < ApplicationRecord
 {% endhighlight %}
 
-add the row
+şunu ekleyin
+
 {% highlight ruby %}
 belongs_to :idea
 {% endhighlight %}
 
-## *3.* Render the comment form and existing comments
+## *3.* Yorum formunu ve mevcut yorumları sayfada yayınlayın
 
-Open `app/views/ideas/show.html.erb` and after the image_tag
+`app/views/ideas/show.html.erb` dosyasını açın ve image_tag sonrasına
+
 {% highlight erb %}
 <%= image_tag(@idea.picture_url, :width => 600) if @idea.picture.present? %>
 {% endhighlight %}
 
-add
+şunları ekleyin
+
 {% highlight erb %}
 <h3>Comments</h3>
 <% @comments.each do |comment| %>
@@ -65,13 +75,15 @@ add
 <%= render partial: 'comments/form', locals: { comment: @comment } %>
 {% endhighlight %}
 
-In `app/controllers/ideas_controller.rb` add to the show method
+`app/controllers/ideas_controller.rb` dosyasında show metodu içine şunları ekleyin
+
 {% highlight ruby %}
 @comments = @idea.comments.all
 @comment = @idea.comments.build
 {% endhighlight %}
 
-Open `app/views/comments/_form.html.erb` and after
+`app/views/comments/_form.html.erb` dosyasını açın ve şu satırdan sonra
+
 {% highlight erb %}
   <div class="field">
     <%= form.label :body %><br>
@@ -79,12 +91,14 @@ Open `app/views/comments/_form.html.erb` and after
   </div>
 {% endhighlight %}
 
-add the row
+şu satırı ekleyin
+
 {% highlight erb %}
 <%= form.hidden_field :idea_id %>
 {% endhighlight %}
 
-next, remove
+sonra, şunları silin
+
 {% highlight erb %}
 <div class="field">
   <%= form.label :idea_id %>
@@ -92,6 +106,6 @@ next, remove
 </div>
 {% endhighlight %}
 
-That's it. Now view an idea you have inserted to your application and there you should see the form for inserting a comment as well as deleting older comments.
+Bu kadar. Şimdi tanımladığınız bir fikire show tıklayın ve yorum ekleme formu ile eski yorumların silinmesi için linkleri görün.
 
 {% include other-guides.md page="commenting" %}

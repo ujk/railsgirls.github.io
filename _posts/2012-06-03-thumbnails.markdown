@@ -1,63 +1,57 @@
 ---
 layout: default
-title: Show thumbnails when listing ideas
+title: Fikirleri gösterirken thumbnail kullanmak
 permalink: thumbnails
 ---
 
-# Create thumbnails with Carrierwave
+# Carrierwave ile thumbnail'ler üretmek
 
 *Created by Miha Filej, [@mfilej](https://twitter.com/mfilej)*
 
-__Coach__: Explain what specifying the image width in HTML at the end of Step
-4 does and how it differs from resizing images on the server.
+__Eğitmen__: Adım 4 teki HTML içinde resim genişlik özelliğini anlatın ve resimi server'da yeniden boyutlandırmadan farkını anlatın.
 
-## *1.* Installing ImageMagick
+## *1.* ImageMagick kurulumu
 
-* macOS: run `brew install imagemagick`. If you don't have the brew command, you can [install Homebrew here][in-homebrew].
-* Windows: download and run the [ImageMagick installer][im-win] (use the first
-  *download* link). In the installation wizard, make sure you check the checkbox
-  to install legacy binaries.
-* Linux: On Ubuntu and Debian, run `sudo apt-get install imagemagick`. Use the
-  appropriate package manager instead of `apt-get` for other distributions.
+* macOS: `brew install imagemagick` komutu çalıştırın. "brew" komutunuz yoksa [buradan Homebrew kurabilirsiniz][in-homebrew].
+* Windows: [ImageMagick installer][im-win] indirin ve kurun (ilk *download* linkini kullanın). Kurulum sihirbazında "install legacy binaries" seçmeyi unutmayın.
+* Linux: Ubuntu ve Debian'da, `sudo apt-get install imagemagick` çalıştırın. Diğer dağıtımlar için dağıtıma ait `apt-get` komutunu kullanın.
 
   [im-win]: http://www.imagemagick.org/script/download.php#windows
   [in-homebrew]: https://brew.sh/
 
-__Coach__: Explain what is ImageMagick and how is it different from libraries/gems we
-used before?
+__Eğitmen__: ImageMagick nedir daha önce kurduğumuz kütühane ve gemlerden farkı nedir açıklayın
 
-Open `Gemfile` in the project and add
+Projedeki `Gemfile` açın ve şunu ekleyin
 
 {% highlight ruby %}
 gem 'mini_magick'
 {% endhighlight %}
 
-under the line
+şu satırın altına ekleyin
 
 {% highlight ruby %}
 gem 'carrierwave'
 {% endhighlight %}
 
-In the Terminal run:
+Konsolda şunu çalıştırın:
 
 {% highlight sh %}
 bundle
 {% endhighlight %}
 
-## *2.* Telling our app to create thumbnails when an image is uploaded
+## *2.* Uygulamamıza bir resim yüklendiğinde thumbnail yapmasını gösterelim
 
-Open `app/uploaders/picture_uploader.rb` and find the line that looks like
-this:
+`app/uploaders/picture_uploader.rb` dosyasını açın ve şuna benzeyen satırı bulun:
 
 {% highlight ruby %}
   # include CarrierWave::MiniMagick
 {% endhighlight %}
 
-Remove the `#` sign.
+`#` işaretini silin.
 
-__Coach__: Explain the concept of comments in code.
+__Eğitmen__: Kod içindeki yorumların nasıl yapıldığını açıklayın.
 
-Below the line you just changed, add:
+Az önce değiştirdiğiniz satırın altına şunu ekleyin:
 
 {% highlight ruby %}
 version :thumb do
