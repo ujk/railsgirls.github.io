@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Rails Girls App Tutorial
+title: Rails Girls Uygulama Tutorial
 permalink: app
 ---
 
-# Rails Girls App Tutorial
+# Rails Girls Uygulama Tutorial
 
 *Created by Vesa Vänskä, [@vesan](https://twitter.com/vesan)*
 
@@ -12,6 +12,8 @@ permalink: app
 
 
 ## Araçları tanıyalım
+
+<div class="indent" markdown="1">
 
 <h3><i class="icon-text-editor">&nbsp;</i></h3>
 
@@ -32,11 +34,13 @@ permalink: app
 
 * (Firefox, Safari, Chrome) uygulamanızı görüntülemek için kullanılabilir.
 
+</div>
+
 Bu klavuz boyunca şöyle formatlanmış kod parçaları göreceksiniz:
 
-```ruby
+{% highlight sh %}
 some code
-```
+{% endhighlight %}
 
 <div>
 <p>Bunun anlamı gösterilen yazı bir koddur ve ya çalıştırılacaktır ya da dosyalarınızdan birine yazılacaktır. </p>
@@ -46,20 +50,20 @@ some code
 
 ### Önemli
 
-İşletim sisteminize uygun komutları seçmeniz önemlidir - Windows, Mac ya da Linux konsollarında komutlar arasında bazı küçük farklar olabilir.  If you're having trouble check the Operating System switcher at the bottom of the commands. In case you're using a cloud service (e.g. Codenvy), you need to run the Linux commands even if you are on a Windows computer.
+İşletim sisteminize uygun komutları seçmeniz önemlidir - Windows, Mac ya da Linux konsollarında komutlar arasında bazı küçük farklar olabilir. Eğer sorun olursa komutların altındaki işletim sistemi sviç linklerini kullanın. Cloud servis kullanıyorsanız Windows bilgisayar kullanıyor olsanız bile servisteki Linux komutları geçerli olacaktır.
 
-## *1.* Creating the application
+## *1.* Yeni uygulama üretmek
 
-We're going to create a new Rails app called *railsgirls*.
+*railsgirls* adında yeni bir uygulama üreteceğiz.
 
-First, let's open a terminal:
+İlk önce konsolu açalım:
 
-* macOS: Open Spotlight, type *Terminal* and click the *Terminal* application.
-* Windows: Click Start and look for *Command Prompt*, then click *Command Prompt with Ruby and Rails*.
-* Linux (Ubuntu/Fedora): Search for *Terminal* on the dash and click *Terminal*.
-* Cloud service (e.g. Codenvy): Log in to your account, start your project and switch to its IDE (see [installation guide](/install#using-a-cloud-service) for details). The terminal is usually at the bottom of your browser window.
+* macOS: Spotlight açın, *Terminal* yazın ve  *Terminal* uygulamasını seçin.
+* Windows: Start'a tıklayın *Command Prompt* arayın, sonra *Command Prompt with Ruby and Rails* tıklayıp çalıştırın.
+* Linux (Ubuntu/Fedora): Uygulamalarda *Terminal* arayın ve çalıştırın.
+* Cloud servis (örn. Codenvy): Hesabınıza girin, projenizi açın ve servisin konsol penceresini açın.
 
-Next, type these commands in the terminal:
+Sonra konsolda bu komutları girin:
 
 <div class="os-specific">
   <div class="nix">
@@ -68,7 +72,7 @@ mkdir projects
 {% endhighlight %}
 
     <div>
-<p>You can verify that a directory named <code>projects</code> was created by running the list command: <code>ls</code>. You should see the <code>projects</code> directory in the output. Now you want to change the directory you are currently in to the <code>projects</code> folder by running:</p>
+<p><code>projects</code> klasörünün gerçekten oluşturulmuş olduğunu listeleme komutu: <code>ls</code> kullanarak kontrol edebilirsiniz. Çıktıda <code>projects</code> klasörünü göreceksiniz. Şimdi çalıştığınız klasörü <code>projects</code> klasörüne değiştirmek için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -76,7 +80,7 @@ cd projects
 {% endhighlight %}
 
     <div>
-<p>You can verify you are now in an empty directory or folder by again running the <code>ls</code> command. Now you want to create a new app called <code>railsgirls</code> by running:</p>
+<p>Bu klasörün boş olduğunu görmek için yine <code>ls</code> komutunu çalıştırın. Şimdi <code>railsgirls</code> adında bir uygulama üretmek için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -84,7 +88,7 @@ rails new railsgirls
 {% endhighlight %}
 
     <div>
-<p>This will create a new app in the folder <code>railsgirls</code>, so we again want to change the directory to be inside of our rails app by running:</p>
+<p>Bu <code>railsgirls</code> klasörü altında yeni uygulamamızı üretecektir, şimdi uygulama klasörümüzün de içine girelim:</p>
     </div>
 
 {% highlight sh %}
@@ -92,7 +96,7 @@ cd railsgirls
 {% endhighlight %}
 
     <div>
-<p>If you run <code>ls</code> inside of the directory you should see folders such as <code>app</code> and <code>config</code>. You can then start the rails server by running:</p>
+<p>Eğer şimdi <code>ls</code> komutu çalıştırırsanız <code>app</code> ave <code>config</code> gibi dosya ve klasörler göreceksiniz. Bundan sonra Rails server'ı çalıştırmak için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -106,7 +110,7 @@ mkdir projects
 {% endhighlight %}
 
     <div>
-<p>You can verify that a directory named <code>projects</code> was created by running the list command: <code>dir</code>. You should see the <code>projects</code> directory in the output. Now you want to change the directory you are currently in to the <code>projects</code> folder by running:</p>
+<p><code>projects</code> klasörünün gerçekten oluşturulmuş olduğunu listeleme komutu: <code>dir</code> kullanarak kontrol edebilirsiniz. Çıktıda <code>projects</code> klasörünü göreceksiniz. Şimdi çalıştığınız klasörü <code>projects</code> klasörüne değiştirmek için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -114,7 +118,7 @@ cd projects
 {% endhighlight %}
 
     <div>
-<p>You can verify you are now in an empty directory or folder by again running the <code>dir</code> command. Now you want to create a new app called <code>railsgirls</code> by running:</p>
+<p>Bu klasörün boş olduğunu görmek için yine <code>dir</code> komutunu çalıştırın. Şimdi <code>railsgirls</code> adında bir uygulama üretmek için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -122,7 +126,7 @@ rails new railsgirls
 {% endhighlight %}
 
     <div>
-<p>This will create a new app in the folder <code>railsgirls</code>, so we again want to change the directory to be inside of our rails app by running:</p>
+<p>Bu <code>railsgirls</code> klasörü altında yeni uygulamamızı üretecektir, şimdi uygulama klasörümüzün de içine girelim:</p>
     </div>
 
 {% highlight sh %}
@@ -130,7 +134,7 @@ cd railsgirls
 {% endhighlight %}
 
     <div>
-<p>If you run <code>dir</code> inside of the directory you should see folders such as <code>app</code> and <code>config</code>. You can then start the rails server by running:</p>
+<p>Eğer şimdi <code>dir</code> komutu çalıştırırsanız <code>app</code> ave <code>config</code> gibi dosya ve klasörler göreceksiniz. Bundan sonra Rails server'ı çalıştırmak için şunu girin:</p>
     </div>
 
 {% highlight sh %}
@@ -139,13 +143,13 @@ rails server
   </div>
 </div>
 
-Open <http://localhost:3000> in your browser. If you are using a cloud service (e.g. Codenvy), use its preview functionality instead (see [installation guide](/install#using-a-cloud-service) for details).
+<http://localhost:3000> adresini tarayıcınızda açın. Cloud servis kullandığınızda servise göre tarayıcının nasıl açılacağını servis sağlayıcının yardımından bulabilirsiniz.
 
-You should see a page with the Rails logo and the heading "Yay! You’re on Rails!", which means that your Rails app is up and running.
+Rails logosu olan ve "Yay! You’re on Rails!" yazısı olan bir sayfa görüyor olmalısınız, bunun anlamı Rails uygulamanız oluşturuldu ve de çalışıyor.
 
-Notice in this window the command prompt is not visible because you are now in the Rails server. 
+Dikkat ettiyseniz konsolda kursor görünmüyor çünkü şu anda konsolda Rails server'ı çalışıyor. 
 
-The command prompt looks like this:
+Prompt yerine şunu görürsünüz:
 
 <div class="os-specific">
   <div class="nix">
@@ -160,62 +164,62 @@ $
   </div>
 </div>
 
-**Tip:** Sometimes, both in this guide and other guides online, you will see commands written with the `$` symbol at the start. This is a convention that signifies the beginning of a line that needs to be entered into your Terminal / Command Prompt.
-You do not need to type this symbol at the start of your commands. Your particular prompt may not have a `$` symbol at the start of it.
+**İpucu:** Bazen bu ve diğer online klavuzlarda komutları başında bir `$` sembolü ile gösterilir. Bu genelde konsolda satırın başını gösteren bir standart gösterim şeklidir.
+Komutlarınızın başında bu sembolü koymadan yazmalısınız. Sizin işletim sisteminizdeki konsolda `$` sembolü olmayabilir.
 
-When the command prompt is not visible you cannot execute new commands. If you try running `cd` or another command it will not work. To return to the normal command prompt:
+Komut prompt görünmezken yeni bir komut giremezsiniz. Eğer `cd` ya da başka komut çalıştırmak isteseniz çalışmayacaktır. Rails server çalışırken de böyle olur. Normal prompta dönmek için:
 
-Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> in the terminal to quit the server.
+Terminalde <kbd>Ctrl</kbd>+<kbd>C</kbd> basarak server'dan çıkabilirsiniz.
 
-**Coach:** Explain what each command does. What was generated? What does the server do?
+**Eğitmen:** Her komutun ne yaptığını anlatın. Ne üretildi? Server ne yapar?
 
 
-## *2.* Create Idea scaffold
+## *2.* Idea scaffold Üretin
 
-We're going to use Rails' scaffold functionality to generate a starting point that allows us to list, add, remove, edit, and view things; in our case ideas.
+Rails'in scaffold fonksiyonlarını kullanarak bize temel fikirlerimiz listelememizi, eklememizi, silmemizi ve görmemizi sağlayan sayfalarınkalıplarını hazırlayacağız. (list, add, remove, edit and view).
 
-**Coach:** What is Rails scaffolding? (Explain the command, the model name and related database table, naming conventions, attributes and types, etc.) What are migrations and why do you need them?
+**Eğitmen:** Rails scaffold nedir? (Komutu açıklayın, model adı ve ilgili veri tabanı tabloları, isimlendirme standartları, özellikler ve tipler gibi.) Migration nedir ve ona neden ihtiyacınız var?
 
 {% highlight sh %}
 rails generate scaffold idea name:string description:text picture:string
 {% endhighlight %}
 
-The scaffold creates new files in your project directory, but to get it to work properly we need to run a couple of other commands to update our database and restart the server.
+scaffold proje klasörünüz içinde yeni dosyalar üretir, fakat tamamen çalışması için veri tabanımızı yenilemek amacıyla ve server'ı tekrar çalıştırmak amacıyla birkaç komut daha çalıştırmalıyız.
 
 {% highlight sh %}
 rails db:migrate
 rails server
 {% endhighlight %}
 
-Open <http://localhost:3000/ideas> in your browser. Cloud service (e.g. Codenvy) users need to append '/ideas' to their preview url instead (see [installation guide](/install#using-a-cloud-service)).
+Tarayıcıda <http://localhost:3000/ideas> adresini açın. 
 
-Click around and test what you got by running these few command-line commands.
+Sayfayı inceleyip gezinin ve bu komutların ortaya ne çıkardığına bir bakın.
 
-## *3.* Design
+## *3.* Tasarım
 
-**Coach:** Talk about the relationship between HTML and Rails. What part of views is HTML and what is Embedded Ruby (ERB)? What is MVC and how does this relate to it? (Models and controllers are responsible for generating the HTML views.)
+**Eğitmen:** HTML ve Rails arasındaki ilişkiyi anlatın. Görsellerin hangi parçası HTML hangisi Embedded Ruby (ERB)? MVC nedir ve bununla nasıl bir ilişkisi vardır? (Modeller ve kontrolörler HTML görselleri oluşturmakla sorumludur.)
 
-The app doesn't look very nice yet. Let's do something about that. We'll use the Twitter Bootstrap project to give us nicer styling really easily.
+Uygulama henüz pek güzel görünmüyor. Hadi bu konuda bir şeyler yapalım. Yakışıklı görselleri kolayca yapabilmek için Twitter Bootstrap projesini kullanacağız.
 
-Open `app/views/layouts/application.html.erb` in your text editor and above the line
+Text editörünüzde `app/views/layouts/application.html.erb` dosyasını açın ve şu satırın
 
 {% highlight erb %}
 <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 {% endhighlight %}
 
-add
+üzerine şunları ekleyin
 
 {% highlight erb %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 {% endhighlight %}
 
-and replace
+ve
 
 {% highlight erb %}
 <%= yield %>
 {% endhighlight %}
 
-with
+yerine şunu yazın
 
 {% highlight erb %}
 <div class="container">
@@ -223,7 +227,7 @@ with
 </div>
 {% endhighlight %}
 
-Let's also add a navigation bar and footer to the layout. In the same file, under `<body>` add
+Şimdi yerleşime bir de gezinti bar ve footer ekleyelim. Aynı dosyada `<body>` altına şunu ekleyin
 
 {% highlight html %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -243,7 +247,7 @@ Let's also add a navigation bar and footer to the layout. In the same file, unde
 </nav>
 {% endhighlight %}
 
-and before `</body>` add
+ve `</body>` satırı öncesine şunları ekleyin
 
 {% highlight erb %}
 <footer>
@@ -256,7 +260,7 @@ and before `</body>` add
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 {% endhighlight %}
 
-Now let's also change the styling of the ideas table. Open `app/assets/stylesheets/application.css` and at the bottom add
+Şimdi ideas tablosunun görüntüsünün de stilini biraz değiştirelim.  `app/assets/stylesheets/application.css` dosyasını açın ve en alta şunları ekleyin
 
 {% highlight css %}
 footer { margin-top: 100px; }
@@ -265,149 +269,151 @@ th { border-bottom: 1px solid #DDD; }
 body { margin: 0; }
 {% endhighlight %}
 
-Now make sure you saved your files and refresh the browser to see what was changed. Nothing changed? It might be that you're not connected to the wifi anymore.
-You can change the HTML & CSS further, adding to `app/assets/stylesheets/application.css`.
+Şimdi dosyaları kaydettiğinizden emin olduktan sonra tarayıcınızda sayfayı yenileyin ve sonucu görün. Bir şey değişmedi mi? Belkide wifiye hiç bağlanmamışsınızdır.
+HTML & CSS dosyalarını daha sonra da `app/assets/stylesheets/application.css` dosyasına eklemeler yaparak değiştirebilirsiniz.
 
-**Coach:** Talk a little about CSS and layouts.
+**Eğitmen:** CSS ve yerleşimler hakkında kısaca anlatın.
 
 
-## *4.* Adding picture uploads
+## *4.* Resim upload eklemek
 
-We need to install a piece of software to let us upload files in Rails.
+Rails uygulamasında dosya upload edebilmek için birkaç yazılım yüklemelisiniz.
 
-Open `Gemfile` in the project directory using your text editor and under the line
+Projenizdeki `Gemfile` dosyasını açın ve 
 
 {% highlight ruby %}
 gem 'sqlite3'
 {% endhighlight %}
 
-add
+satırı altına şunu ekleyin
 
 {% highlight ruby %}
 gem 'carrierwave'
 {% endhighlight %}
 
-**Coach:** Explain what libraries are and why they are useful. Describe what open source software is.
+**Eğitmen:** Kütüphanelerin ne olduğunu ve nasıl faydalı olduğunu anlatın. Açık kaynak kodun ne olduğunu anlatın.
 
-Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> in the terminal to quit the server.
+Konsolda <kbd>Ctrl</kbd>+<kbd>C</kbd> basarak server'dan çıkın.
 
-In the terminal run:
+Konsolda şu komutu girin:
 
 {% highlight sh %}
 bundle
 {% endhighlight %}
 
-Now we can generate the code for handling uploads. In the terminal run:
+Şimdi uploadları işlemek için kod yazabiliriz. Konsolda şu komutu girin:
 
 {% highlight sh %}
 rails generate uploader Picture
 {% endhighlight %}
 
-If an error is shown that the uploader cannot be found also add the following line:
+Eğer uploader bulunamadığını belirten bir hata çıktısı verirse dosyaya şu satırı da ekleyin:
+
 {% highlight ruby %}
 gem 'net-ssh'
 {% endhighlight %}
 
-If you added this gem, please run in your terminal again:
+Tabi bunu ekledikten sonra konsolda tekrar:
 
 {% highlight sh %}
 bundle
 {% endhighlight %}
 
-Open `app/models/idea.rb` and under the line
+çalıştırmalısınız.
+
+`app/models/idea.rb` dosyasını editörde açın ve şu satırın altına
 
 {% highlight ruby %}
 class Idea < ApplicationRecord
 {% endhighlight %}
 
-add
+şunu ekleyin
 
 {% highlight ruby %}
 mount_uploader :picture, PictureUploader
 {% endhighlight %}
 
-Open `app/views/ideas/_form.html.erb` and change
+`app/views/ideas/_form.html.erb` dosyasını açın ve
 
 {% highlight erb %}
 <%= form.text_field :picture %>
 {% endhighlight %}
 
-to
+satırını şöyle değiştirin
 
 {% highlight erb %}
 <%= form.file_field :picture %>
 {% endhighlight %}
 
-In your file it might actually say `<%= f.text_field :picture %>`, just roll with it.
-In your browser, add new idea with a picture. When you upload a picture it doesn't look nice because it only shows a path to the file, so let's fix that.
+Tarayıcınızda resimle beraber yeni bir fikif ekleyin. Eklediğiniz kaydı gösteren sayfaya geçince sadece resim dosyanızın path'ini yazı olarak gösterecektir. O zaman bunu da düzenleyelim.
 
-To show the picture in the page of the idea itself, open `app/views/ideas/show.html.erb` and change
+Fikirin gösteriminde resim olarak görünmesini isteiyorsanız `app/views/ideas/show.html.erb` dosyasını açın ve şöyle değiştirin
 
 {% highlight erb %}
 <%= @idea.picture %>
 {% endhighlight %}
 
-to
+yerine
 
 {% highlight erb %}
 <%= image_tag(@idea.picture_url, width: 600) if @idea.picture.present? %>
 {% endhighlight %}
 
-To make sure that the picture is also shown in the overview of ideas, open `app/views/ideas/index.html.erb`. Change the line
+Resimin ayrıca index sayfasındaki liste de görünmesini sağlamak için `app/views/ideas/index.html.erb` dosyasını açın ve şu satırı
 
 {% highlight erb %}
 <%= idea.picture %>
 {% endhighlight %}
 
-to
+böyle değiştirin
 
 {% highlight erb %}
 <%= image_tag idea.picture_url, width: '100%' if idea.picture.present? %>
 {% endhighlight %}
 
-Now refresh your browser to see what changed.
-Note: Some people might be using a second terminal to run the rails server continuously.
+Şimdi tarayıcınızda sayfayı yenileyin ve ne değiştiğini görün.
+Not: Bazıları Rails server'ı ikinci bir konsolda sürekli çalıştırmayı tercih eder.
 
-**Coach:** Talk a little about HTML.
+**Eğitmen:** Biraz HTML hakkında konuşun.
 
 
-## *5.* Finetune the routes
+## *5.* Linklere ince ayar
 
-Open <http://localhost:3000> (or your preview url, if you are using a cloud service). It still shows the "Yay! You’re on Rails!" page. Let's make it redirect to the ideas page.
+Eğer <http://localhost:3000> sayfasını açarsanız hala "Yay! You’re on Rails!" sayfasını gösterdiğini görürsünüz. Hadi bir yönlendirme ile fikirler sayfasına gitmesini sağlayalım.
 
-Open `config/routes.rb` and after the first line add
+`config/routes.rb` dosyasını açın ve ilk satırdan sonrasına şunu ekleyin
 
 {% highlight ruby %}
 root to: redirect('/ideas')
 {% endhighlight %}
 
-Test the change by opening the root path (that is, <http://localhost:3000/> or your preview url) in your browser.
+Açılış sayfasına giderek değişimi test edin ( <http://localhost:3000/> sayfası).
 
-**Coach:** Talk about routes, and include details on the order of routes and their relation to static files.
+**Eğitmen:** Route'lar ve bunların sıralamalarını ve statik dosyalarla ilişkilerini anlatın.
 
-## *6.* Create static page in your app
+## *6.* Uygulamanıza bir statik sayfa ekleyin
 
-Lets add a static page to our app that will hold information about the author of this application — you!
+Hadi sayfamıza uygulamanın yazarının yani sizin hakkınızda bilgi verecek bir sayfa ekleyelim
 
 {% highlight sh %}
 rails generate controller pages info
 {% endhighlight %}
 
-This command will create you a new folder under `app/views` called `/pages` and under that a file called `info.html.erb` which will be your info page.
+Bu komut `app/views` klasörü altında `/pages` adında yeni bir alt klasör üretir ve onun altında sizin bilgi sayfanız olacak `info.html.erb` dosyasını üretir.
 
-It also adds a new simple route to your `config/routes.rb`.
+Ayrıca `config/routes.rb` dosyasına basit bir route ekler.
 
 {% highlight ruby %}
 get "pages/info"
 {% endhighlight %}
 
-Now you can open the file `app/views/pages/info.html.erb` and add information about you in HTML. To see your new info page, take your browser to <http://localhost:3000/pages/info> or, if you are a cloud service user, append '/pages/info' to your preview url.
+Şimdi `app/views/pages/info.html.erb` dosyasını açın ve içine hakkınızdaki bilgileri HTML olarak yazın. Yeni sayfanızı görmek için tarayıcıda <http://localhost:3000/pages/info> sayfasını açın.
 
-## *7.* Add a button to your navigation bar
+## *7.* Gezinti barına bir buton ekleyin
 
-Now that we know your new static page works, let's make sure people can visit it by creating a button for it in the navigation bar.
+Statik sayfanızın çalıştığını gördünüz, hadi navigasyon barında ilave bir buton koyarak ziyaretçilere sayfaya gitmeleri için link sunun.
 
-Open `app/views/layouts/application.html.erb` in your text editor and under the line
+Editörde `app/views/layouts/application.html.erb` dosyasını açın ve şu satırın altına
 
 {% highlight html %}
 <li class="nav-item active">
@@ -415,7 +421,7 @@ Open `app/views/layouts/application.html.erb` in your text editor and under the 
 </li>
 {% endhighlight %}
 
-add
+şunları ekleyin
 
 {% highlight html %}
 <li class="nav-item">
@@ -423,13 +429,13 @@ add
 </li>
 {% endhighlight %}
 
-Refresh the page in your browser and click the newly created link to see if it works!
+Sayfayı yenileyin ve yeni tanımladığınız linki tıklayarak çalışmasını test edin.
 
-## *8.*What's next?
+## *8.* Sonraki adım ne?
 
-* Add design using HTML &amp; CSS
-* Add ratings
-* Use CoffeeScript (or JavaScript) to add interaction
-* Add picture resizing to make loading the pictures faster
+* Tasarımı HTML &amp; CSS kullanarak geliştirin
+* Oylama ekleyin
+* CoffeeScript (veya JavaScript) kullanarak interaksiyon ekleyin
+* Resim boyutlandırma ekleyerek resim yüklemesini hızlandırın
 
 {% include other-guides.md page="app" %}

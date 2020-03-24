@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Setup recipe for Rails Girls
+title: Rails Girls için Kurulum Reçetesi
 permalink: install
 ---
 
-# Setup recipe for Rails Girls
-<span class="muted">Cooking time: 5min active / 15-30min passive</span>
+# Rails Girls için Kurulum Reçetesi
+<span class="muted">Pişirme süresi: aktif 5 dk / pasif 15-30 dk</span>
 
-To build apps and other things with Ruby on Rails, we need to setup some software and the developer environment for your computer.
+Ruby On Rails ile uygulama ve diğer şeyleri yapmak için bazı yazılım ve geliştirici ortamlarını bilgisayarınıza kurmamız gerekiyor.
 
-Follow the instructions for your operating system. If you run into any problems, don&#8217;t panic. Inform us at the event and we can solve it together.
+İşletim sisteminize ait olan yönlendirmeleri takip edin. Eğer bir problemle karşılaşırsanız panik yapmayın. Bizi olay hakkında bilgilendirin ve birlikte çözelim.
 
-* [Setup for macOS](#setup-for-os-x)
-* [Setup for Windows](#setup-for-windows)
-* [Setup for Linux](#setup-for-linux)
-* [Alternative Installment for all OS](#virtual-machine)
-* [Using a Cloud Service - No Installation Required](#using-a-cloud-service)
+* [macOS için Kurulum](#setup-for-os-x)
+* [Windows için Kurulum](#setup-for-windows)
+* [Linux için Kurulum](#setup-for-linux)
+* [Tüm İşletim Sistemleri için Alternatif Kurulum](#virtual-machine)
+* [Bir Cloud Servis Kullanmak - Kurulum Gerektirmez](#using-a-cloud-service)
 
 <hr />
 
@@ -156,105 +156,105 @@ Now you should have a working Ruby on Rails programming setup. Congrats!
 
 <hr />
 
-## Setup for Windows
+## Windows için Kurulum
 
-To install Rails for Windows we'll need to install Ruby and several supporting tools such as Git, Node.js and SQLite. Follow the steps below in order to install these tools on your computer. When you're done with these steps you will have a Rails app running on your computer.
+Windows'ta Rails kurmak için Ruby ve yanında Git, Node.js ve SQLite gibi farklı uygulamalar kurmamız gerekir. Aşağıda herbiri için yönergeleri takip edin ve bilgisayarınıza kurun. Bu adımları tamamladığınızda bilgisayarınızda Rails uygulaması çalıştırabilirsiniz.
 
-_During these steps we'll ask you to open and close the Windows Command Prompt every now and then. This can be either the "Command Prompt" or "Powershell" app. We ask you to close and re-open it, because when the Command Prompt starts it loads in the environment. When we install a new app, the environment does not get automatically updated in the Command Prompt. To test if the installation was successful we need to restart the Command Prompt and load the new environment._
+_Bu adımlar boyunca sizden sürekli olarak Windows Komut İstemi çalıştırmanızı isteyeceğiz. Burada "Command Prompt" kullanabileceğiniz gibi "Powershell" de kullanabilirsiniz. Bazen kapatıp açmanızı isteyeceğiz, çünkü ortam değişkenlerinde değişiklik yapıldığında bu yeni değikenlerin algılanması için gereklidir._
 
-### *1.* Install Ruby
+### *1.* Ruby Kurulumu
 
-- Download the [RubyInstaller](https://rubyinstaller.org/downloads/) for Windows.
-  - [Direct link to Ruby 2.6.5 installer with Devkit](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.5-1/rubyinstaller-devkit-2.6.5-1-x86.exe) for 32-bit architecture.
-- Run the installer. Click through the installer using all the default options.
-  - When prompted with the "MSYS2" installer, enter `1` and press Enter.
-  - When prompted with the same "MSYS2" installer again, only press Enter.
+- Windows için [RubyInstaller](https://rubyinstaller.org/downloads/) indirin.
+  - 32-bit [Devkit ile beraber Ruby 2.6.5 kurulum direk adres](https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-2.6.5-1/rubyinstaller-devkit-2.6.5-1-x86.exe) .
+- Kurulumu çalıştırın. Tamamı default opsiyonları seçerek kurulumu yürütün.
+  - "MSYS2" kurulumunu sorunca `1` ve Enter basın.
+  - Tekrar aynı "MSYS2" kurulumu sorulunca sadece Enter basın.
 
-### *2.* Install Git
+### *2.* Git Kurulumu
 
-- Visit the [Git installer for Windows](https://git-scm.com/download/win) download page.
-  - Click the link for the "32-bit Git for Windows Setup" installer to download it.
-- Run the installer. Click through the installer using all the default options.
+- [Windows için Git](https://git-scm.com/download/win) kurulum indirme sayfasına gidin.
+  - "32-bit Git for Windows Setup" dosyasına tıklayıp indirin.
+- Kurulumu çalıştırın. Default opsiyonları tıklayarak kurulumu tamamlayın.
 
-### *3.* Install Node.js
+### *3.* Node.js Kurulumu
 
-- Visit [nodejs.org/en/download](https://nodejs.org/en/download/).
-  - Select the "LTS" version tab, selected by default.
-  - From the "Windows Installer (.msi)" row, click the link for the 32-bit architecture to download it.
-- Run the installer. Click through the installer using all the default options.
-- Open the Windows Command Prompt and run the following command to check if the installation was successful. It should output a version number like `v12.16.0` (your version may differ).
+- [nodejs.org/en/download](https://nodejs.org/en/download/) sayfasına gidin.
+  - "LTS" versiyon tabını seçin, default seçili olacaktır.
+  - "Windows Installer (.msi)" satırında 32-bit için olanı indirin.
+- Kurulumu çalıştırın. Default opsiyonları tıklayarak kurulumu tamamlayın.
+- Kurulumun başarılı olduğunu test için aşağıdaki komutu komut isteminde çalıştırın. `v12.16.0` gibi bir versiyon numarası çıktısı vermeli (sizdeki versiyon farklı olabilir).
 
 {% highlight sh %}
 node --version
 {% endhighlight %}
 
-- Close the Windows Command Prompt app.
+- Komut istemi uygulamasını kapatın.
 
-#### *3a.* Install yarn
+#### *3a.* Yarn Kurulumu
 
-- Visit the [yarn download page](https://yarnpkg.com/lang/en/docs/install/#windows-stable).
-- Download the installer by clicking the "Download installer" button.
-- Run the installer. Click through the installer using all the default options.
-- Open the Windows Command Prompt and run the following command to check if the installation was successful. It should output a version number like `1.22.0` (your version may differ).
+- [yarn indirme sayfasını](https://yarnpkg.com/lang/en/docs/install/#windows-stable) ziyaret edin.
+- "Download installer" diğmesini tıklayarak kurulumu indirin.
+- Kurulumu çalıştırın. Default opsiyonları tıklayarak kurulumu tamamlayın.
+- Kurulumun başarılı olduğunu test için aşağıdaki komutu komut isteminde çalıştırın. `1.22.0` gibi bir versiyon numarası çıktısı vermeli (sizdeki versiyon farklı olabilir).
 
 {% highlight sh %}
 yarn --version
 {% endhighlight %}
 
-- Close the Windows Command Prompt app.
+- Komut istemi uygulamasını kapatın.
 
-### *4.* Install SQLite
+### *4.* SQLite Kurulumu
 
-- Visit [sqlite.org/download.html](https://sqlite.org/download.html)
-- Scroll down to the "Precompiled Binaries for Windows" section.
-- Download the `sqlite-dll-win32-x86-xxxxxxx.zip` package (where `xxxxxxx` is the most recent version number).
-- Download the `sqlite-tools-win32-x86-xxxxxxx.zip` package (where `xxxxxxx` is the most recent version number).
-- Extract the packages.
-- In Windows Explorer, open "This Computer" in the sidebar and open the `C:` local disk.
-- Create a directory called `sqlite3`.
-- Copy the files from the extracted packages into the `C:\sqlite3` directory. As a result you will have the following files in that directory: `sqldiff`, `sqlite3.def`, `sqlite3.dll`, `sqlite3` and `sqlite3_analyzer`.
-- Open the Windows Command Prompt and run the following command to add the `c:\sqlite3` directory to the system PATH.
-  - For Command Prompt users:
+- [sqlite.org/download.html](https://sqlite.org/download.html) sayfasını ziyaret edin.
+- "Precompiled Binaries for Windows" bölümüne kadar aşağı kaydırın.
+- `sqlite-dll-win32-x86-xxxxxxx.zip` paketini indirin (burada `xxxxxxx` en son versiyon numarası).
+- `sqlite-tools-win32-x86-xxxxxxx.zip` paketini de indirin (burada `xxxxxxx` en son versiyon numarası).
+- Bu paketelri açın.
+- Windows gezgininde `C:` sürücüsünü açın.
+- `sqlite3` adında yeni bir klasör oluşturun.
+- Açılmış paket dosyalarının tümünü `C:\sqlite3` klasörüne kopyalayın. Sonuç olarak klasörde şu dosyalar olmalı: `sqldiff`, `sqlite3.def`, `sqlite3.dll`, `sqlite3` ve `sqlite3_analyzer`.
+- Windows komut istemini açın ve aşağıdaki komut ile `c:\sqlite3` klasörünü PATH ortam değişkenine ekleyin.
+  - Command Prompt kullanıcıları için:
     - `setx path "%path%;c:\sqlite3"`
-  - For Powershell users:
+  - Powershell kullanıcıları için:
     - `setx path "c:\sqlite3"`
-- Close the Windows Command Prompt app.
-- Re-open the Windows Command Prompt and run the following command to check if the installation was successful. It should output a version number like `3.31.1` (your version may differ).
+- Komut istemi uygulamasını kapatın.
+- Komut istemini tekrar açın. Kurulumun başarılı olduğunu test için aşağıdaki komutu komut isteminde çalıştırın. `3.31.1` gibi bir versiyon numarası çıktısı vermeli (sizdeki versiyon farklı olabilir).
 {% highlight sh %}
 sqlite3 --version
 {% endhighlight %}
 
-- Close the Windows Command Prompt app.
+- Komut istemi uygulamasını kapatın.
 
-### *5.* Install Rails
+### *5.* Rails Kurulumu
 
-- Open the Windows Command Prompt run the following command. This will install the Rails and bundler gems on your computer.
+- Windows konsolu (komut istemi) açın ve aşağıdaki komutu girin. Bu komut Rails ve Bundler gemlerini Ruby'ye ekleyecektir.
 
 {% highlight sh %}
 gem install rails bundler --no-document
 {% endhighlight %}
 
-- Open the Windows Command Prompt and run the following command to check if the installation was successful. It should output a version number like `Rails 6.0.2.1` (your version may differ).
+- Windows konsolu açın ve aşağıdaki komutu çalıştırarak kurulumun başarılı olmasını test edin. `Rails 6.0.2.1` gibi bir versiyon numarası çıktı vermelidir (sizdeki versiyon farklı olabilir).
 
 {% highlight sh %}
 rails --version
 {% endhighlight %}
 
-_If you run into any problems during this step, check the [Possible errors](#possible-errors-during-installation) section for possible solutions._
+_Bu adım boyunca herhangi bir problemle karşılaşırsanız , [olası hatalar](#possible-errors-during-installation) bölümünde belki çözüm bulabilirsiniz._
 
-### *6.* Install a text editor to edit code files
+### *6.* Kod dosyalarını düzenlemek için bir text editörü kurun
 
-For the workshop we recommend the text editor Atom.
+Çalışma ortamı olarak biz Atom text editörü öneriyoruz.
 
-- Visit the [Atom download page](https://github.com/atom/atom/releases/latest).
-  - Click the `AtomSetup.exe` link to download Atom.
-  - Run the installer. Click through the installer using all the default options.
+- [Atom indirme sayfasını](https://github.com/atom/atom/releases/latest) ziyaret edin.
+  - `AtomSetup.exe` linkini tıklayın Atom'u indirin.
+  - Kurulumu çalıştırın. Default opsiyonları tıklayarak kurulumu tamamlayın.
 
-If you are using Windows Vista or older versions, you can use another editor [Sublime Text 2](http://www.sublimetext.com/2). Just to make sure that you're not mixing up using your command prompt or text-editor: change the theme of your Sublime text-editor, choosing one of the following: "iPlastic", "Slush &amp; Poppies", or "Zenburnesque".
+Windows Vista ya da daha eski versiyon kullanıyorsanız başka bir editör kullanabilirsiniz. [Sublime Text 2](http://www.sublimetext.com/2) kullanabilirsiniz. Sadece konsol penceresi ile karıştırmayın, çünkü bu editör de karanlık arkaplana sahiptir. İsterseniz tema olarak "iPlastic", "Slush &amp; Poppies", veya "Zenburnesque" secebilirsiniz.
 
-### *7.* Check the environment
+### *7.* Ortamı Kontrol Edin
 
-Check that everything is working by running the application generator command.
+Her şeyin sağlıklı kurulduğunu ve üreteç komutların çalıştığını görmek için şunları girin.
 
 {% highlight sh %}
 rails new myapp
@@ -268,13 +268,13 @@ cd myapp
 rails server
 {% endhighlight %}
 
-Go to [`http://localhost:3000`](http://localhost:3000) in your browser, and you should see the "Yay! You're on Rails!" page.
+Tarayıcınızda [`http://localhost:3000`](http://localhost:3000) adresine gidin, "Yay! You're on Rails!" sayfasını görmelisiniz.
 
-Now you should have a working Ruby on Rails programming setup. Congrats!
+Bu durumda çalışan bir Ruby On Rails kurulumunu gerçekleştirdiniz. Tebrikler!
 
-_If you run into any problems during this step, check the [Possible errors](#possible-errors-during-installation) section for solutions._
+_Bu adım boyunca herhangi bir problemle karşılaşırsanız , [olası hatalar](#possible-errors-during-installation) bölümünde belki çözüm bulabilirsiniz._
 
-**Coach:** We recommend to verify by using the scaffold command and inputting data with the generated page with coaches to ensure everything is working. Also: remove the test app `myapp` to make super sure no-one is working in the wrong folder, following the steps of the workshop.
+**Eğitmen:** Herşeyin tam çalıştığından emin olamk için scaffold ile sayfalar oluşturup bu sayfalardan veri girişinin başarılı olduğunu da test etmenizi tavsiye ederiz. Ayrıca: `myapp` klasörünü işiniz bittiğinde silerek ileride atölyede çalışma yaparken yanlış klasörde çalışılmasını engelleyin.
 
 <hr />
 
@@ -364,35 +364,35 @@ Now you should have a working Ruby on Rails programming setup. Congrats!
 
 <hr />
 
-## Virtual Machine
+## Sanal Makina
 
-Instead of installing all tools on your machine, you can also set up a development environment in a Virtual Machine. Please find all the details [here]({% post_url 2014-03-24-alternative-dev-environment %}).
+Tüm bu yazılımları bilgisayarınıza kuracağınıza geliştirme ortamını Sanal Makinada da kurabilirsiniz. Ayrıntılar için bakınız [burası]({% post_url 2014-03-24-alternative-dev-environment %}).
 
 <hr />
 
-## Using a Cloud Service
+## Bir Cloud Servis Kullanmak
 
-Instead of installing Ruby on Rails and an editor on your computer, you can use a webservice for development. All you need is a browser and an internet connection. This guide explains how to get started with [codenvy.io](https://codenvy.io). If you're using a different service, they may use a different wording, but the process is usually pretty similar.
+Bilgisayarınıza Ruby On Rails ve editör kurmaya uğraşmak yerine geliştirme için bir webservis de kullanabilirsiniz. Tüm ihtiyacınız olan bir tarayıcı ve internet bağlantısı. Bu klavuz [codenvy.io](https://codenvy.io) servisini açıklıyor. Başka bir servis kullanıyorsanız anlatımları başka olabilir ama proses aşağı yukarı aynı olacaktır.
 
-### *1.* Create an account
+### *1.* Bir hesap oluşturun
 
-Go to [codenvy.io](https://codenvy.io) and signup for free.
-You will need to confirm your email and then fill in your details.
+[codenvy.io](https://codenvy.io) sayfasına gidin ve ücretsiz signup linkini seçin.
+Önce email adresinizi onaylayıp sonra detay bilgilerinizi düzenleyebilirsiniz.
 
 ![](/images/codenvy/codenvy-create-one.png)
 
-### *2.* Setup a workspace for Ruby on Rails
+### *2.* Ruby on Rails için bir Workspace Ayarı
 
-The Ruby on Rails Workspace has all the software we need for the workshop already preinstalled.
-To create a workspace, log into [codenvy.io](https://codenvy.io) and click on 'Dashboard'.
-If no workspace has been created yet, the 'New Workspace' view is displayed.
+Ruby on Rails Workspace atölyemize gereken tüm yazılımları önceden kurulmuş olarak içeriyor.
+Bir Workspace oluşturmak için [codenvy.io](https://codenvy.io) adresine kullanıcı girişi yapın ve 'Dashboard' a tıklayın.
+Eğer henüz bir workspace oluşturulmadıysa 'New Workspace' görüntüsü gelir.
 
 ![](/images/codenvy/codenvy-dashboard-create-workspace.png)
 
-In the 'New Workspace' view, a few settings have to be made.
+'New Workspace' görüntüsünde birkaç ayarlama yapılmalıdır.
 
-* Give the workspace a name of your choice. In the example this is "railsgirls".
-* From "Select Stack", select "Quick Start", scroll down and select "Rails"
+* Workspace'e istediğiniz bir ismi verin. Bu örnekte isim "railsgirls".
+* From "Select Stack", select "Quick Start", scroll down and select "Rails" (malesef rails artık yok o yüzden ben PaizaCloud kullandım)
 * Now click on 'Create' to create the workspace (it takes a moment for the process to finish)
 
 ![](/images/codenvy/codenvy-rails-stack.png)
