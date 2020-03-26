@@ -1,50 +1,54 @@
 ---
 layout: default
-title: Adding Authentication with Devise
+title: Devise ile Yetkilendirme
 permalink: devise
 ---
 
-# Adding Authentication with Devise
+# Devise il Kullanıcı Yetkilendirmesi Ekleyin
 
 *Created by Piotr Steininger, [@polishprince](https://twitter.com/polishprince)*
 
 *Updated by Ernesto Jimenez, [@ernesto_jimenez](https://twitter.com/ernesto_jimenez)*
 
-**This guide assumes that you have already built a Rails Girls app by** [**following the app development guide**](/app).
+**Bu klavuz daha önce RailsGirls** [**uyggulaması geliştirme klavuzunu**](/app) **bitirdiğinizi kabul eder**.
 
 
-## *1.* Add devise gem
+## *1.* Devise gem'i ekleyin
 
-Open up your `Gemfile` and add this line
+Editörde `Gemfile` dosyasını açın ve şunu ekleyin
 
 {% highlight ruby %}
 gem 'devise'
 {% endhighlight %}
-and run
+
+ve konsolda şunu çalıştırın
+
 {% highlight sh %}
 bundle install
 {% endhighlight %}
-to install the gem. **Also remember to restart the Rails server**.
 
-## *2.* Set up devise in your app
+Gem kurulumu yaparken **Rails server'ı tekrar başlatmayı unutmayın**.
 
-Run the following command in the terminal.
+## *2.* Uygulamanıza devise eklenmesi
+
+Konsolda aşağıdaki komutu çalıştırın.
 
 {% highlight sh %}
 rails g devise:install
 {% endhighlight %}
 
 
-## *3.* Configure Devise
+## *3.* Devise'i Yapılandır
 
-Ensure you have defined default url options in your environments files. Open up `config/environments/development.rb` and add this line:
+Ortam dosyalarında default url'lerin yapılandırıldığından emin olmak için `config/environments/development.rb` dosyasını açın ve şu satırı ekleyin:
+
 {% highlight ruby %}
    config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 {% endhighlight %}
 
-before the `end` keyword.
+`end` satırı öncesine ekleyin.
 
-Open up `app/views/layouts/application.html.erb` and add:
+`app/views/layouts/application.html.erb` dosyasını açın ve şunu ekleyin:
 
 {% highlight erb %}
 <% if notice %>
@@ -54,41 +58,44 @@ Open up `app/views/layouts/application.html.erb` and add:
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 {% endhighlight %}
-right above
+
+şunun tam üstüne ekleyin
+
 {% highlight ruby %}
    <%= yield %>
 {% endhighlight %}
 
-Open up `app/views/ideas/show.html.erb` and remove the line that says:
+`app/views/ideas/show.html.erb` dosyasını açın ve şu satırları silin:
 
 {% highlight erb %}
 <p id="notice"><%= notice %></p>
 {% endhighlight %}
 
-Do the same for `app/views/comments/show.html.erb`. These lines are not necessary as we've put the notice in the `app/views/layouts/application.html.erb` file.
+Aynı şeyi `app/views/comments/show.html.erb` dosyasına da yapın. Bu satırlara gerek yok çünkü uyarı mesajını `app/views/layouts/application.html.erb` yerleşim dosyasına koyduk.
 
-## *4.* Setup the User model
+## *4.* Kullanıcı modelini kurun
 
-We'll use a bundled generator script to create the User model.
+Kayıtlı jeneratör scriptlerinden birini kullanacağız.
+
 {% highlight sh %}
    rails g devise user
    rails db:migrate
 {% endhighlight %}
 
-**Coach:** Explain what user model has been generated. What are the
-fields?
+**Eğitmen:** Üretilen user modelini anlatın. Tablo sütunları neler?
 
-## *5.* Create your first user
+## *5.* İlk kullanıcıyı oluşturun
 
-Now that you have set everything up you can create your first user. Devise creates all the code and routes required to create accounts, log in, log out, etc.
+Şimdi ilk kullanıcıyı tanımlamak için tüm altyapıyı kurdunuz. Devise kullanıcı hesabı açmak, login ve logout vs. işlemleri için gereken kodları oluşturdu.
 
-Make sure your rails server is running, open [http://localhost:3000/users/sign_up](http://localhost:3000/users/sign_up) and create your user account.
+Rails server'ı çalıştırın ve [http://localhost:3000/users/sign_up](http://localhost:3000/users/sign_up) sayfasını açarak kullanıcı hesabınızı oluşturun.
 
-## *6.* Add sign-up and login links
+## *6.* Kayıt ve login linkleri ekleyin
 
-All we need to do now is to add appropriate links or notice about the user being logged in in the top right corner of the navigation bar.
+Tüm ihtiyacımız olan kullanıcıya ya linkleri ya da sisteme giriş yaptığını gösteren tasarım değişikliği. 
 
-In order to do that, edit `app/views/layouts/application.html.erb` add:
+Bunu yapmak için `app/views/layouts/application.html.erb` dosyasına şunu ekleyin:
+
 {% highlight erb %}
 <p class="navbar-text float-right">
 <% if user_signed_in? %>

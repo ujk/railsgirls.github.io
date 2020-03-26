@@ -59,25 +59,22 @@ version :thumb do
 end
 {% endhighlight %}
 
-The images uploaded from now on should be resized, but the ones we already
-have weren't affected. So edit one of the existing ideas and re-add a picture.
+Şimdiden sonra yüklenen resimler yeniden boyutlandırılacaktır, fakat şu ana kadar yüklenenler hala aynı duruyor. Bu resimleri düzenleyip tekrar yükleyelim.
 
-## *3.* Displaying the thumbnails
+## *3.* Thumbnail olarak göstermek
 
-To see if the uploaded picture was resized open
-`app/views/ideas/index.html.erb`. Change the line
+Yeni yüklenen resimin boyutlandırıldığını kontrol için `app/views/ideas/index.html.erb` dosyasında şu satırı değiştirin.
 
 {% highlight erb %}
 <%= image_tag idea.picture_url, width: '100%' if idea.picture.present? %>
 {% endhighlight %}
 
-to
+şöyle yapın
 
 {% highlight erb %}
 <%= image_tag idea.picture_url(:thumb) if idea.picture.present? %>
 {% endhighlight %}
 
-Take a look at the list of ideas in the browser to see if the thumbnail is
-there.
+Şimdi tarayıcıda fikirler listesine gidip bakın thumbnail resimler gelmiş mi?
 
 {% include other-guides.md page="thumbnails" %}
