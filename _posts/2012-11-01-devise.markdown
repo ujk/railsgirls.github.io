@@ -4,7 +4,7 @@ title: Devise ile Yetkilendirme
 permalink: devise
 ---
 
-# Devise il Kullanıcı Yetkilendirmesi Ekleyin
+# Devise ile Kullanıcı Yetkilendirmesi Ekleyin
 
 *Created by Piotr Steininger, [@polishprince](https://twitter.com/polishprince)*
 
@@ -108,7 +108,9 @@ Bunu yapmak için `app/views/layouts/application.html.erb` dosyasına şunu ekle
 <% end %>
 </p>
 {% endhighlight %}
-right after
+
+şu bloğun arkasına ekleyin
+
 {% highlight erb %}
   <ul class="navbar-nav mr-auto">
     <li class="nav-item active">
@@ -116,25 +118,26 @@ right after
     </li>
     ...
   </ul>
+  # buraya ekleyin
 {% endhighlight %}
 
-Finally, force the user to redirect to the login page if the user was not logged in. Open up `app/controllers/application_controller.rb` and add:
+Son olarak eğer kullanıcı giriş yapmamışsa login sayfasına zorlamalısınız. `app/controllers/application_controller.rb` dosyasına şunu ekleyin:
 
 {% highlight ruby %}
   before_action :authenticate_user!
 {% endhighlight %}
 
-after `class ApplicationController < ActionController::Base`.
+`class ApplicationController < ActionController::Base` satırının altına.
 
-Open your browser and try logging in and out from.
+Tarayıcınızı açın ve login logout işlemlerini deneyin.
 
-**Coach:** Talk about the `user_signed_in?` and `current_user` helpers. Why are they useful?
+**Eğitmen:** `user_signed_in?` ve `current_user` yardımcı komutları hakkında konuşun. Neden kullanışlılar?
 
-## What next?
+## Sonraki adım nedir?
 
-* Add extra fields to the User model
-* Add relationships between users and ideas
-* Restrict users to only be able to edit their own ideas and delete their own comments
-* Expand to use roles or permissions (use one of the popular authorization gem like CanCan)
+* User modeline başka alanlar ekleyin
+* Kullanıcılar ve fikirleri arasında bağlantı ekleyin
+* Kullanıcıları sadece kendi yazılarını düzenlemeleri ve ona ait yorumları silebilmeleri konusunda yetkilendirin
+* Roller veya kısıtlamalara geçin (CanCan gibi popüler yetkilendirme gemlerinden birini kullanarak)
 
 {% include other-guides.md page="devise" %}
