@@ -1,23 +1,23 @@
 ---
 layout: default
-title: Add design to your App with HTML and CSS
+title: HTML ve CSS ile Uygulamanıza stil ekleyin
 permalink: design-html-css
 ---
 
-## *1.* Design your header
+## *1.* header'ınızı düzenleyin
 
-put the following code to the bottom of `app/assets/stylesheets/application.css`:
+`app/assets/stylesheets/application.css` dosyasının en altına şu kodu ekleyin:
 
 {% highlight css %}
 .navbar {
-  min-height: 38px;
-  background-color: #f55e55;
+  min-height: 38px !important;
+  background-color: #f55e55 !important;
 }
 {% endhighlight %}
 
-Now refresh the page and check the changes. You can try change the color or font of the header. You can check the color reference from [http://color.uisdc.com/](http://color.uisdc.com/).
+Şimdi sayfayı yenileyip değişimleri kontrol edin. Başlık yazısı rengi ya da fontunu da değiştirebilirsiniz. Renkleri  [http://color.uisdc.com/](http://color.uisdc.com/) adresinde inceleyebilirsiniz.
 
-Then put these lines at the bottom：
+Sonra da en alta bunları ekleyin：
 
 {% highlight css %}
 .navbar a.brand { font-size: 18px; }
@@ -28,32 +28,32 @@ Then put these lines at the bottom：
 }
 {% endhighlight %}
 
-**Coach:** explain the 4 states of a link
+**Eğitmen:** bir linkin 4 durumunu açıklayın
 
 
-## *2.* Design your table
+## *2.* table tag ayarlayın
 
-We simply use the twitter [Bootstrap](http://getbootstrap.com/) to polish our table. Find this line from app/views/ideas/index.html.erb and replace:
+Twitter [Bootstrap](http://getbootstrap.com/) ile tablo stilimizi belirliyoruz. `app/views/ideas/index.html.erb` dosyasında bu satırı bulun:
 
 {% highlight html %}
 <table>
 {% endhighlight %}
 
-with
+ve böyle değiştirin
 
 {% highlight html %}
 <table class="table">
 {% endhighlight %}
 
-Modify size of the picture using the following lines
+Aşağıdaki satırla ile resim boyutunu değiştirin
 
 {% highlight erb %}
 <%= image_tag(idea.picture_url, :width => 600) if idea.picture.present? %>
 {% endhighlight %}
 
-try to change the width and see what's gonna happen
+"width" özelliğinin değerini değiştirerek nasıl etkisi olduğunu deneyin
 
-add the following lines to the bottom of file app/assets/stylesheets/ideas.css.scss:
+`app/assets/stylesheets/ideas.css.scss` dosyasının altına şu satırları ekleyin:
 
 {% highlight css %}
 .container a:hover {
@@ -63,11 +63,11 @@ add the following lines to the bottom of file app/assets/stylesheets/ideas.css.s
 }
 {% endhighlight %}
 
-try add some background style with property `background-image`, reference to [http://subtlepatterns.com/](http://subtlepatterns.com/) for some patterns.
+`background-image` özelliği ile arkaplan stili değiştirin, [http://subtlepatterns.com/](http://subtlepatterns.com/) adresinde bazı patern örnekleri mevcut.
 
-## *3.* add style to footer
+## *3.* footer stilini değiştirin
 
-add the lines to bottom of  app/assets/stylesheets/application.css:
+`app/assets/stylesheets/application.css` dosyasının altına şunları ekleyin:
 
 {% highlight css %}
 footer {
@@ -76,13 +76,13 @@ footer {
 }
 {% endhighlight %}
 
-try put more things into `footer`, then adjust it's position.
+`footer` stiline başka şeyler de deneyin, sonra pozisyonunu değiştirin.
 
-## *4.* add style to button
+## *4.* button'a stil ekleyin
 
-open [http://localhost:3000/ideas/new](http://localhost:3000/ideas/new) and find the `Create Idea` button.
+[http://localhost:3000/ideas/new](http://localhost:3000/ideas/new) sayfasını açın ve `Create Idea` düğmesini bulun.
 
-add these lines to app/assets/stylesheets/ideas.css.scss
+`app/assets/stylesheets/ideas.css.scss` dosyasına şunları ekleyin
 
 {% highlight css %}
 .container input[type="submit"] {
@@ -94,6 +94,6 @@ add these lines to app/assets/stylesheets/ideas.css.scss
 }
 {% endhighlight %}
 
-**Coach:** explain how to use `border` in css, try modify the style of button like round the corner, add shadow or color etc.
+**Eğitmen:** CSS'de `border` nasıl kullanılır açıklayın, butonun köşelerini yuvarlatılmış yapmayı deneyin, gölge ekleyin vs.
 
 {% include other-guides.md page="design-html-css" %}
