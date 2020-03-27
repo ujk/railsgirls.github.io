@@ -1,58 +1,55 @@
 ---
 layout: default
-title: Rails Girls Sinatra tutorial
+title: Rails Girls Sinatra Klavuzu
 permalink: sinatra-app
 ---
 
-# Create your first voting app with Sinatra
+# Sinatra ile ilk oylama uygulamanızı yapın
 
 *Created by Piotr Szotkowski, [@chastell](https://twitter.com/chastell)*
 
-We will create a little voting app from scratch using a web development framework for Ruby called Sinatra, which is much like Ruby on Rails. Just another tool to get the job done really, and a fun one too!
+Ruby on Rails'e benzeyen Sinatra isimli Ruby web geliştirme iskeletini kullanarak küçük bir oylama uygulaması yapacağız. İş bitirmek için aynı zamanda eğlenceli bir araç!
 
-Imagine your group of friends is figuring out what to order for your weekly movie watching marathon. With the many fast food options out there, this can become quite a discussion. This is where our app comes into play!
+Düşünün, arkadaşlarınızla haftasonu yapacağınız film izleme maratonu için neler sipariş edeceğinizi tartışıyorsunuz. Bir çok fast food opsiyonları var, karar vermek zorlaşıyor. Uygulamamız burada devreye giriyor!
 
-__COACH__: Explain shortly what [Sinatra](http://www.sinatrarb.com) is.
+__EĞİTMEN__: [Sinatra'nın](http://www.sinatrarb.com) ne olduğunu kısaca anlatın.
 
-## Install Sinatra
+## Sinatra Kuruluması
 
-Remember how we needed to install Ruby on Rails? Similarly we need to install Sinatra:
+Ruby on Rails'i nasıl kurduğumuzu hatırlayın. Benzer şekilde Sinatra kurmamız gerekiyor:
 
 `gem install sinatra`
 
-### Create your first Sinatra app
+### İlk Sinatra uygulamanızı yapın
 
-Create a `suffragist.rb` file with the following contents:
+`suffragist.rb` dosyasını içinde şu kodlarla üretin:
 
 {% highlight ruby %}
 require 'sinatra'
 
 get '/' do
-  'Hello, voter!'
+  'Merhaba oy veren!'
 end
 {% endhighlight %}
 
 
-You can actually call your Ruby file whatever you'd like. `vote.rb` for instance would totally work as well, when used consistently. But [suffragist](http://www.vocabulary.com/dictionary/suffragist) actually references to a super important event in the women's rights movement, so let's just go with that for now!  
+Ruby dosyanıza istediğiniz ismi verebilirsiniz. Mesela `oylama.rb` de olsa gayet güzel çalışır. Fakat [suffragist](http://www.vocabulary.com/dictionary/suffragist) kadın hakları hareketinde çok önemli bir olayı ifade ediyor, o yüzden bu isimle devam etmeyi seçtik!  
 
 
-### Run your app
+### Uygulamayı çalıştırın
 
-Go to the directory where you put your app and run `ruby suffragist.rb`.
-Now you can visit <a href="localhost:4567" target="_blank">localhost:4567</a>. You should
-see a ‘Hello, voter!’ page, which means that the generation of your new
-app worked correctly. Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> in the terminal to shut down the server. If <kbd>Ctrl</kbd>+<kbd>C</kbd> does not work for you it means you are probably Windows user and <kbd>Ctrl</kbd>+<kbd>Z</kbd>/ <kbd>Ctrl</kbd>+<kbd>Pause</kbd> / <kbd>Ctrl</kbd>+<kbd>Break</kbd> will fix the issue)
+Uygulamayı koyduğunuz klasöre konsolda gidip `ruby suffragist.rb` komutunu çalıştırın.
+Şimdi tarayıcıda <a href="localhost:4567" target="_blank">localhost:4567</a> sayfasına gidin. 'Merhaba oy veren!' yazısı olan bir sayfa görmelisiniz, bunun anlamı uygulamanız çalışmaya başlamış demektir. Konsolda <kbd>Ctrl</kbd>+<kbd>C</kbd> basarak server'ı durdurun. (Eğer <kbd>Ctrl</kbd>+<kbd>C</kbd> sizin için çalışmazsa muhtemelen Windows kullanıyorsunuz ve <kbd>Ctrl</kbd>+<kbd>Z</kbd>/ <kbd>Ctrl</kbd>+<kbd>Pause</kbd> / <kbd>Ctrl</kbd>+<kbd>Break</kbd> sorunu çözecektir)
 
-__COACH__: Explain POST and GET methods, and how to communicate with the browser.
+__EĞİTMEN__: POST ve GET metodları ile tarayıcıyla nasıl etkileştiklerini açıklayın.
 
 
 
-### Add the index view
+### index görselini ekleyin
 
-To keep everything in order let’s make
-a directory for our views (and name it `views`).
+Herşeyi düzenli tutabilmek için görselleri içeren bir klasör oluşturalım (ve adını `views` koyalım).
 
-Put this code into an `index.erb` file in the `views` directory:
+Bu kodu `views` klasörü altındaki `index.erb` dosyasına yazalım:
 
 {% highlight erb %}
 <!DOCTYPE html>
@@ -63,7 +60,7 @@ Put this code into an `index.erb` file in the `views` directory:
     <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet' />
   </head>
   <body class='container'>
-    <p>What's for dinner?</p>
+    <p>Akşam ne yiyelim?</p>
     <form action='cast' method='post'>
       <ul class='unstyled'>
         <% Choices.each do |id, text| %>
@@ -75,13 +72,13 @@ Put this code into an `index.erb` file in the `views` directory:
           </li>
         <% end %>
       </ul>
-      <button type='submit' class='btn btn-primary'>Cast this vote!</button>
+      <button type='submit' class='btn btn-primary'>Oyumu Gönder!</button>
     </form>
   </body>
 </html>
 {% endhighlight %}
 
-And into `suffragist.rb`:
+Ve `suffragist.rb` dosyası içinde ilk satırın altına:
 
 {% highlight ruby %}
 Choices = {
@@ -92,7 +89,7 @@ Choices = {
 }
 {% endhighlight %}
 
-Change the `get` action:
+`get` aksiyonunu da değiştirin:
 
 {% highlight ruby %}
 get '/' do
@@ -100,18 +97,15 @@ get '/' do
 end
 {% endhighlight %}
 
-Run `ruby suffragist.rb`, check your
-results and shut down the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+Konsolda `ruby suffragist.rb` ile çalıştırın ve sonucu görün. <kbd>Ctrl</kbd>+<kbd>C</kbd> ile server'ı durdurun.
 
-__COACH__: Talk a little about HTML and erb. Explain
-templates. Explain what global constants are.
+__EĞİTMEN__: Biraz HTML ve erb hakkında anlatın. Görsel kalıplarını anlatın. Global sabitler hakkında anlatın.
 
 
 
-### Templates
+### Template'ler (Görsel kalıpları)
 
-Adjust the `index.erb` file in the `views`
-directory and add the `<h1>…</h1>` line:
+`index.erb` dosyasını düzenleyin ve `<h1>…</h1>` satırı ekleyin:
 
 {% highlight erb %}
   <body class='container'>
@@ -119,7 +113,7 @@ directory and add the `<h1>…</h1>` line:
     <p>What's for dinner?</p>
 {% endhighlight %}
 
-Change the `get` action:
+`get` aksiyonu da şöyle değiştirin:
 
 {% highlight ruby %}
 get '/' do
@@ -128,25 +122,23 @@ get '/' do
 end
 {% endhighlight %}
 
-__COACH__: Explain what instance variables are and
-how Sinatra makes them visible in the views.
+__EĞİTMEN__: Oluşum değişkenleri ve Sinatra'nın onları görseller içinde kullanış şeklini anlatın.
 
 
 
-### Add the ability to POST results
+### Sonuçların POST ile gönderimi ekleyin
 
-Put this into `suffragist.rb`:
+`suffragist.rb` içine şunu ekleyin:
 
 {% highlight ruby %}
 post '/cast' do
-  @title = 'Thanks for casting your vote!'
+  @title = 'Oy gönderdiğiniz için teşekkürler!'
   @vote  = params['vote']
   erb :cast
 end
 {% endhighlight %}
 
-Create a new file in the `views` directory, `cast.erb`,
-and put there some HTML with embedded Ruby code:
+Gördüğünüz gibi "cast" adında bir görsel gerekiyor. `views` klasörü altında `cast.erb` dosyasını ekleyin ve içine biraz Ruby kodu katılmış HTML ekleyin:
 
 {% highlight erb %}
 <!DOCTYPE html>
@@ -158,21 +150,19 @@ and put there some HTML with embedded Ruby code:
   </head>
   <body class='container'>
     <h1><%= @title %></h1>
-    <p>You cast: <%= Choices[@vote] %></p>
-    <p><a href='/results'>See the results!</a></p>
+    <p>Oyunuz : <%= Choices[@vote] %></p>
+    <p><a href='/results'>Sonuçları görün!</a></p>
   </body>
 </html>
 {% endhighlight %}
 
-__COACH__: Explain how POST works. How to catch what
-was sent in the form? Where do `params` come from?
+__EĞİTMEN__: POST nasıl çalışır anlatın. Form içinde olanları nasıl algılar. `params` nereden geliyor?
 
 
 
-### Factor out a common layout
+### Ortak bir yerleşim ile düzenleyin
 
-Create a `layout.erb` file in the `views`
-directory. Put the following in there:
+`views` klasöründe `layout.erb` dosyasını ekleyin. İçine şu kodu yazın:
 
 {% highlight erb %}
 <!DOCTYPE html>
@@ -189,17 +179,15 @@ directory. Put the following in there:
 </html>
 {% endhighlight %}
 
-Remove the above part from the other two templates
-(`index.erb` and `cast.erb` in the `views` directory).
+Yukarıdaki parçayı diğer iki görsel kalıptan çoıkartın (`views` klasöründeki`index.erb` ve `cast.erb` dosyaları).
 
-__COACH__: Talk about the structure of HTML documents and how factoring
-out common code work in general. Explain what `yield` does.
+__EĞİTMEN__: HTML döküman yapısı ve ortak kod dosyalarıyla düzenlemenin nasıl çalıştığını anlatın. `yield` ne yapar açıklayın.
 
 
 
-### Add the results route and the results view
+### results route'unu ve results görselini ekleyin
 
-Paste the following code into `suffragist.rb`:
+Aşağıdaki kodu `suffragist.rb` içine ekleyin:
 
 {% highlight ruby %}
 get '/results' do
@@ -208,7 +196,7 @@ get '/results' do
 end
 {% endhighlight %}
 
-Create a new file in the `views` directory, called `results.erb`.
+`views` klasörü altında `results.erb` isminde bir dosya ekleyin.
 
 {% highlight erb %}
 <table class='table table-hover table-striped'>
@@ -220,33 +208,33 @@ Create a new file in the `views` directory, called `results.erb`.
     </tr>
   <% end %>
 </table>
-<p><a href='/'>Cast more votes!</a></p>
+<p><a href='/'>Daha çok oy kullanın!</a></p>
 {% endhighlight %}
 
-Run `ruby suffragist.rb`, check
-your results and shut down the server with <kbd>Ctrl</kbd>+<kbd>C</kbd>.
+`ruby suffragist.rb` çalıştırın, sonuçları kontrol edin 
+<kbd>Ctrl</kbd>+<kbd>C</kbd> ile server'ı durdurun.
 
-__COACH__: Explain HTML tables and how the
-missing values from the hash default to zero.
+__EĞİTMEN__: HTML tablolarını ve hash listesinde olmayan değerin nasıl sıfır olarak
+geldiğini anlatın.
 
 
 
-### Persist the results using YAML::Store
+### YAML::Store ile sonuçları saklamak
 
-Time for something new! Let’s store our choices.
+Yeni bir şeyler yapma zamanı! Hadi seçimlerimizi saklayalım.
 
-Add the following to the top of `suffragist.rb`:
+`suffragist.rb` dosyasının üstüne şunu ekleyin:
 
 {% highlight ruby %}
 require 'yaml/store'
 {% endhighlight %}
 
-Add some more code into `suffragist.rb` – replace
-`post '/cast'` and `get '/results'` with the following:
+`suffragist.rb` içine bazı kodlar eklenecek – 
+`post '/cast'` ve `get '/results'` bloklarını şöyle değiştirin:
 
 {% highlight ruby %}
 post '/cast' do
-  @title = 'Thanks for casting your vote!'
+  @title = 'Oy gönderdiğiniz için teşekkürler!'
   @vote  = params['vote']
   @store = YAML::Store.new 'votes.yml'
   @store.transaction do
@@ -258,36 +246,34 @@ post '/cast' do
 end
 
 get '/results' do
-  @title = 'Results so far:'
+  @title = 'Sonuçlar:'
   @store = YAML::Store.new 'votes.yml'
   @votes = @store.transaction { @store['votes'] }
   erb :results
 end
 {% endhighlight %}
 
-__COACH__: Explain what YAML is.
+__EĞİTMEN__: YAML nedir anlatın.
 
 
-### See how the YAML file changes when votes are cast
+### Oylar gönderildikçe YAML dosyasının değişimini takip edin
 
-Let’s open `votes.yml`. And vote. And check again.
+`votes.yml` dosyasını açın. Bir oy daha gönderin. Tekrar sonuca bakın.
 
-__COACH__: There will be situations when one or more students will
-forget to shut down the server before running it again. It’s a good
-opportunity to search the Internet for a solution. They don’t
-have to know everything about killing processes to find a solution.
+__EĞİTMEN__: Bazı öğrencilerin server'ı kapatmadan yeni bir tane açtıklarına dair 
+durumlar çıkacaktır. İnternette araştırmak için güzel bir konu olacaktır.
 
-__COACH__: In the end explain shortly the differences between Sinatra and Rails.
+__EĞİTMEN__: Son olarak Sinatra ve Rails arasındaki farkları anlatın.
 
 
 
-## Play with the app
+## Uygulama ile oynayın
 
-Try to change things in the app in any way you see fit:
+Uygulamada değiştirmek istediğiniz bazı yerlere müdahale edin:
 
-* Add some additional logic to the views.
-* Redirect to the results outright.
-* Add other votings; how would the YAML file need to change?
-* Try to style the file in different ways.
+* Görselllere ilave lojik ekleyin.
+* Sonuçlara doğrudan yönlendirin.
+* Başka bir oylama ekleyin. YAML dosyasının nasıl değişmesi gerekir?
+* Dosyayı başka stillerde şekilllendirmeye çalışın.
 
 {% include other-guides.md page="sinatra-app" %}
