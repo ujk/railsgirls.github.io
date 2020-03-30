@@ -1,108 +1,108 @@
 ---
 layout: default
-title: Rails Girls Diary tutorial
+title: Rails Girls Günlük tutorial
 permalink: diary-app
 ---
 
-# Create your first diary app with Ruby on Rails
+# Ruby on Rails ile ilk günlük uygulamanızı yapın
 
 *Created by Piotr Szotkowski ([chastell](http://chastell.net)) and Tomasz Stachewicz ([tomash](http://tomash.wrug.eu/about.html))*
 
-We will create a little voting app from scratch using a web development framework for Ruby called Rails. Think what your first application should be about – ideally something simple that includes a collection of some sort: e.g., a to-do list, a diary, etc. We’ll use a diary as the base here.
+Web geliştirme iskeleti Ruby on Rails kullanarak küçük bir oylama uygulaması yapacağız. İlk uygulamanızın ne olmasını düşünürsünüz - bazı sıralı bilgiler içeren basit bir şey olabilir: örn., yapılacaklar listesi, bir günlük vs. Biz burada günlük olarak tercih edeceğiz.
 
-__COACH__: For the rationale behind this slightly different beginners tutorial, take a look at this [post](http://dotclass.org/rails-girls-warsaw-programme/).
-
-
-**Make sure you have Rails installed.** [**Follow the installation guide**](/install) to get set up.
+__EĞİTMEN__: Bu biraz farklı yeni başlayanlar eğitiminin arkasındaki mantık için, şuna bir göz atın [post](http://dotclass.org/rails-girls-warsaw-programme/).
 
 
-## Get to know the tools
+**Rails kurulu olduğundan emin olun.** [**Kurulum klavuzuna bakarak**](/install) Rails kurabilirsiniz.
+
+
+## Gerekli araçlar
 
 <div class="indent" markdown="1">
 
 <h3><i class="icon-text-editor">&nbsp;</i></h3>
 
-### Text Editor
+### Text Editörü
 
-* [Atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com),  Vim and Emacs are examples of text editors your can use for writing code and editing files.
+* [Atom](https://atom.io/), [Sublime Text](http://www.sublimetext.com),  Vim ve Emacs dosyaları yazmak ve düzenlemek için kullanabileceğiniz editörlere örnekler.
 
 <h3><i class="icon-prompt">&nbsp;</i></h3>
 
-### Terminal (known as Command Prompt on Windows)
+### Konsol (Windows'ta Command Prompt ya da Komut İsteği olarak bilinir)
 
-* Where you start the rails server and run commands.
+* Rails server ve komutlarını çalıştırabileceğiniz yer.
 
 <h3><i class="icon-browser">&nbsp;</i></h3>
 
-### Web browser
+### Web tarayıcı
 
-* (Firefox, Safari, Chrome) for viewing your application.
+* Uygulamanızı göreceğiniz uygulama (Firefox, Safari, Chrome).
 
-__COACH__: Assist with the installation; make sure the text editor is set up properly (e.g., check whether the encoding is UTF-8).
+__EĞİTMEN__: Kuruluma yardımcı olun; editörlerin doğru ayarlandığından emin olun (mesela dosyaların yazı kodlaması UTF-8 olduğundan emin olun).
 
 </div>
 
-### Important
+### Önemli
 
-It is important that you select the instructions specific to your operating system - the commands you need to run on a Windows computer are slightly different to Mac or Linux. If you're having trouble check the Operating System switcher at the bottom of the commands. In case you're using a cloud service (e.g. nitrous), you need to run the Linux commands even if you are on a Windows computer.
+İşletim sisteminize uygun komutları seçmeniz önemlidir - Windows, Mac ya da Linux konsollarında komutlar arasında bazı küçük farklar olabilir. Eğer sorun olursa komutların altındaki işletim sistemi sviç linklerini kullanın. Cloud servis kullanıyorsanız Windows bilgisayar kullanıyor olsanız bile servisteki Linux komutları geçerli olacaktır.
 
-## Pure HTML
+## Saf HTML
 
-### File and folder
+### Dosya ve klasör
 
-Create a new directory (folder) and create a file named `index.html` in it. Open that file in your editor and web browser.
+Yeni bir klasör oluşturun ve içinde `index.html` adında bir dosya ekleyin. Bu dosyayı editörünüzde ve tarayıcınızda açın.
 
-__COACH__: Explain that browsers can open local files, only the URL looks stranger than usual.
+__EĞİTMEN__: Tarayıcıların yerel dosyaları da açabildiğini, sadece URL'nin alışılmışın dışında olduğunu açıklayın.
 
-### HTML skeleton
+### HTML iskeleti
 
-Start by adding a general skeleton for your HTML by writing the below into the `index.html` file:
+Standart HTML yapısını dosyaya ekleyerek başlayalım. `index.html` dosyasına şunları ekleyin:
 
 {% highlight erb %}
 <!doctype html>
 <html>
   <head>
-    <title>My Little Webapp: Coding Is Magic</title>
+    <title>Benim küçük web sayfam: Kodlamak Büyüleyicidir</title>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://rawgithub.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/krzysztofbialek/Rails-Girls-Warsaw-App/master/style.css" />
   </head>
   <body>
   </body>
 </html>
 {% endhighlight %}
 
-__COACH__: Explain the two main parts of HTML, `<head>` and `<body>`. Explain the `<title>` tag and (briefly) `<meta>` , `<link>` and `<script>` if needed. Bootstrap is there so that CSS can be skipped altogether (unless participants want to cover it).
+__EĞİTMEN__: HTML'nin iki parçasını açıklayın, `<head>` ve `<body>`. `<title>` tag'i açıklayın ve gerekirse `<meta>` , `<link>` ve `<script>` tag'lerini de.  Bootstrap varken CSS konusu pas geçilebilir (katılımcılar istemedikçe).
 
-### First visible content
+### İlk görülebilir içerik
 
-Add the following HTML between the `<body>` and `</body>` tags (feel free to adjust the contents…):
+`<body>` ve `</body>` tag'leri arasına aşağıdaki HTML kodu yazın (içeriği istediğiniz gibi değiştirebilirsiniz…):
 
 {% highlight erb %}
-<h1>My Rails Girls Diary</h1>
+<h1>Benim Rails Girls Günlüğüm</h1>
   <div>
-    <h2>Submitted a Rails Girls application</h2>
+    <h2>Bir Rails Girls Uygulaması Gönderdim</h2>
       <p>1.02.2014</p>
-      <p>Just submitted an application to a Rails Girls workshop. Can’t wait to see whether I’ll get in!</p>
-      <h2>Got in!</h2>
+      <p>Az önce Rails Girls atölyesine bir uygulama gönderdim. Beni alıp almayacaklarını sabırsızca bekliyorum!</p>
+      <h2>Alındım!</h2>
       <p>15.02.2014</p>
-      <p>Received an email that my application got accepted! I’ll be at a RG workshop next week!</p>
-    <h2>The first day starts…</h2>
+      <p>Uygulamamın kabul edildiğine dair bir email aldım! Önümüzdeki hafta RG atölyesinde olacağım!</p>
+    <h2>Ve ilk gün başlar…</h2>
       <p>22.02.2014</p>
-      <p>Today is the first day of the Rails Girls workshop. My coach is quite strange but it seems we all have Rails installed now and can start learning.</p>
+      <p>Bugün Rails Girls atölyesinin ilk günü. Eğitmenim biraz ilginç biri ama gördüğüm kadarıyla hepimizde Rails kuruldu ve öğrenmeye başlamaya hazırız.</p>
   </div>
 {% endhighlight %}
 
-These are your first three diary entries. Note how the different tags get displayed and note the recurring structure.
+Bunlar sizin ilk üç günlük yazılarınız. Bunları göstermek için kullanılan değişik tag'lere dikkat edin.
 
-__COACH__: Tell a bit about HTML tags and their semantic meaning.
+__EĞİTİM__: HTML tag'leri ve anlamları hakkında anlatın.
 
-### More HTML
+### Daha fazla HTML
 
-Add the following either before or after the above diary entries (again, do adjust to taste):
+Aşağıdakileri günlük yazılarınızdan sonra ya da öncesine ekleyin (tekrar, zevkinize göre ayarlayın):
 
 {% highlight erb %}
 <div>
-  <h1>My favourite websites</h1>
+  <h1>Favori websitelerim</h1>
     <ul>
       <li><a href="http://railsgirls.com">Rails Girls</a></li>
       <li><a href="https://en.wikibooks.org/wiki/Ruby_Programming">Wikibooks</a></li>
@@ -112,57 +112,57 @@ Add the following either before or after the above diary entries (again, do adju
   <img src="http://railsgirls.com/images/rg-warsaw.png" />
 {% endhighlight %}
 
-This is an HTML unordered list with some list items containing anchors (links) with hypertext references (URLs) to other pages. It’s followed by a paragraph containing an image – and the image’s source is at the given URL.
+Bu bir HTML sırasız liste görünümü, liste elemanları başka URL'le web sitelerine linklerden oluşuyor. Arkasından bir dış URL'den alınmış resimi içeren bir paragraf var.
 
-__COACH__: Explain how the Web works and talk a bit about HTML elements and attributes.
+__EĞİTMEN__: Web'in nasıl çalıştığı , HTML elmanları ve özellikleri hakkında kısaca anlatın.
 
-[Here](https://github.com/krzysztofbialek/Rails-Girls-Warsaw-App)'s a link to repo with styled basic app you can use.
+[Burada](https://github.com/krzysztofbialek/Rails-Girls-Warsaw-App) stilleri oluşturulmuş bir uygulamanın repo'sunu bulabilirsiniz.
 
-## Moving to Rails
+## Rails'e Geçiş
 
-__COACH__: If your students are on Windows, consider using Nitrous.IO as the basis for the following parts.
+__EĞİTMEN__: Eğer talebeleriniz Windows kullanıyorsa, takip eden kısımlar için Nitrous.IO kullandıkları düşünülmüştür.
 
-### New Rails application
+### Yeni Rails uygulaması
 
-Open a terminal window (Command Prompt on Windows), change to the directory where your files are (using the `cd` command) and run `rails new diary` – this will take some time and end up creating a new Rails application. Run `cd diary` to change to the app’s directory.
+Bir terminal penceresi açın (Windows'ta komut isteği), klasörü projelerinizi koyduğunuz klasöre değiştirin ( `cd` komutu kullanarak) ve `rails new diary` komutu girin – bu biraz zaman alacak ve yeni Rails uygulamasının üretilmesi ile bitecektir. `cd diary` ile uygulama klasörüne girin.
 
-__COACH__: Explain how to navigate directories and run commands.
+__EĞİTMEN__: Klasörler arasında nasıl gezinileceğini ve komutların nasıl çalıştırılacağını açıklayın.
 
-### Running the server
+### Server çalıştırılması
 
-Once in the `diary` directory run `rails server` and (once it finishes starting up) go to [http://localhost:3000](http://localhost:3000) in your browser. You should see the ‘Welcome aboard’ page. Stop the server by pressing `ctrl-c`.
+`diary` klasörüne geçtikten sonra `rails server` komutunu çalıştırın ve (başalmasını bitirdikten sonra) [http://localhost:3000](http://localhost:3000) adresini tarayıcınızda açın. Rails'e hoşgeldiniz sayfası açılacaktır. Server'ı `ctrl-c` basarak durdurun.
 
-__COACH__: Explain what has happened and what’s the output in the terminal window. If the server fails to start due to a missing JavaScript runtime, `gem install therubyracer` and uncomment the relevant line in `Gemfile`.
+__EĞİTMEN__: Konsol penceresinde ne çıktılar geldiyse açıklayın. Eğer server Javascript runtime yüzünden hata verir başlamazsa, `gem install therubyracer` çalıştırın ve `Gemfile` içinde ilgili satırın yorum tikini kaldırın.
 
-### First route and view
+### İlk route ve görseli
 
-Create the controller and the route
+Bir kontrolör ve route oluşturun
 
-Run `rails generate controller welcome index` – this will generate your first controller and a route that leads to it. Start your server and go to [http://localhost:3000](http://localhost:3000) to see that your application indeed does support the `/welcome/index` route.
+`rails generate controller welcome index` komutu girin – bu ilk kontrolörünüz ve ona ait route üretecektir. Server'ınızı çalıştırın ve [http://localhost:3000](http://localhost:3000) adresine giderek uygulamanızın `/welcome/index` route desteklediğini deneyin.
 
-Stop the server and run `rake routes` to see all the routes supported by your application.
+Server'ı durdurun ve `rake routes` komutu girerek uygulamanızın desteklediği tüm route'ları görün.
 
-__COACH__: Explain URLs and the URL hierarchy. Explain how in Rails URLs map to ‘what happens behind the scene’.
+__EĞİTMEN__: URL'ler ve URL hiyerarşisini açıklayın. Rails URL'lerinin nasıl çalıştığını, arkaplanda neler olduğunu açıklayın.
 
-### Move the view to be the top of your site
+### Görseli sitenizin en üstüne gönderin
 
-Edit the `config/routes.rb` file and uncomment (remove the `#` from the front) the `root ’welcome#index’` line (this will probably be the 7th line). This will make the root of your application be the view rendered by the `Welcome#index` action. Go to [http://localhost:3000](http://localhost:3000) and see that indeed the main page of your application now serves this view (rather than the ‘Welcome aboard’ page).
+`config/routes.rb` dosyasını açın ve `root ’welcome#index’` satırının önündeki yorum tikini kaldırın ( # işareti ). 7. satır civarında olmalı. Bu uygulamanızın ana route'unu `Welcome#index` aksiyonuna yönlendirir. [http://localhost:3000](http://localhost:3000) sayfasına gidin ve yeni sayfanızın geldiğini görün (Rails hoşgeldiniz sayfası yerine).
 
-__COACH__: Explain how the main page of an application is the root of the URL hierarchy and that it’s the page that people visit when they just put the host name into the browser’s address bar.
+__EĞİTMEN__: Bir uygulamanın ana sayfasının URL hiyerarşisinin root olduğunu ve kullanıcıların domain adını tarayıcının adres çubuğuna girdiklerinde ziyaret ettikleri sayfa olduğunu açıklayın.
 
-### Move the existing HTML to the right view
+### Önceki yazdıklarınızı doğru görsele koyalım
 
-Edit the `app/views/welcome/index.html.erb` file and copy the contents of the `<body>` tags from your original `index.html` file (i.e., the list of diary entries and the website links) there, replacing the two lines (with `<h1>` and `<p>`) in the view. Refresh the browser to see that the page now indeed contains the right contents.
+`app/views/welcome/index.html.erb` dosyasını editörde açın daha önceki `ìndex.html` dosyasında `<body>` tag'leri arasında kalanları kopyalayın (örn., günlük listeleri ve linkler), görselde bulunan mevcut `<h1>` ve `<p>` satırlarını silin. Tarayıcıda sayfasyı yenileyip sayfada artık istediğimiz içerik olduğunu görün.
 
-__COACH__: Explain that the view only contains the part between `<body>` and `</body>`, as the rest is common to the whole application and is defined elsewhere.
+__EĞİTMEN__: Görselde sadece `<body>` ve `</body>` arasındakilerin bulunduğunu, geri kalanın tamamının uygulama genelinde kullanılmak üzere başka yerlerde bulunduğunu açıklayın.
 
-## Iteration
+## İterasyon
 
-### Repeated content
+### Tekrarlayan içerik
 
-If you look at the structure of your list of links, it seems that every list item looks similar to the others – it contains a URL (where the link should take the user when clicked) and a name (what should the user see and be able to click on). Rather than writing the links as raw HTML (and potentially make a mistake with some of them) let’s abstract this a bit and iterate over a collection of URL-and-name pairs.
+Eğer link listenize bakarsanız, her liste elemanının birbirine benzer yapıda olduğunu görürsünüz – Bir URL (kullanıcı tıkladığında başka sayfaya gidilecek adres bilgisi) ve bir isi (kullanıcının gördüğü ve üzerine tıkladığı yazı). Linkleri salt HTML yazmak yerine (ve bazılarını yazarken hata yapma ihtimaline karşı) bunu düzenlemek için bir URL-isim kolleksiyonu üzerinden iterasyon ile gidelim.
 
-Replace the contents of the `<ul>` tags with the following:
+`<ul>` tag'leri arasını aşağıdaki ile değiştirin:
 
 {% highlight html %}
 <%
@@ -177,11 +177,11 @@ Replace the contents of the `<ul>` tags with the following:
 <% end %>
 {% endhighlight %}
 
-Refresh the browser window to see whether your page still has the same links.
+Tarayıcıyı yenilediğinizde liklerinizin halen aynı şekilde göründüğünü farkedeceksiniz.
 
-__COACH__: Explain what happened – what is an array, what do `<%` and `<%=` ERb tags mean (and how they differ), how iteration works.
+__EĞİTMEN__: Neler olduğunu açıklayın – array nedir, `<%` ve `<%=` ERb tag'leri ne anlama gelir (ve farkları nedir), iterasyon nasıl çalışıyor.
 
-Keeping code or data (like the above `@websites` array) in views is simple, but a bad practice and can bite in the long run. For starters let’s move the `@websites` array from the view to the controller. Remove it from the view and put it in `app/controllers/welcome_controller.rb` in the `index` method so it looks like this:
+Kod ya da veriyi (yukarıdaki `@websites` array gibi) görsel dosyasına koymak kolay, fakat kötü bir tasarım şekli, uzun vadede can yakabilir. Başlangıç olarak `@websites` array verisini görselden kontrolör dosyasına taşıyalım. Oradan silin ve `app/controllers/welcome_controller.rb` içindeki `index` metoduna koyun. Şöyle görünecektir:
 
 {% highlight ruby %}
 class WelcomeController < ApplicationController
@@ -195,49 +195,49 @@ class WelcomeController < ApplicationController
 end
 {% endhighlight %}
 
-Note that after refreshing your browser window nothing should change – this is because variables starting with @ (called ‘instance variables’) can be accessed by both the view and the controller.
+Dikkat edin sayfayı yeniledikten sonra bir şey değişmeyecektir – bunun sebebi @ ile başlayan değişkenler (bunlara oluşum değişkeni denir) görselden ve kontrolörden görülebilir.
 
-__COACH__: Explain the connection between the `WecomeController#index` action and the view; note and emphasise the difference between @-starting `@websites` and plain `url` or `name`.
+__EĞİTMEN__: `WecomeController#index` aksiyonu ve görsel arasındaki bağlantıyı anlatın; @ ile başlayan `@websites` ve düz değişken ismi olan `url` veya `name` arasındaki farkları vurgulayın.
 
-### Create the model
+### Model oluşturun
 
-With the website links out of the hard-coded way, let’s do something with the diary entries. This time we won’t (ab)use a simple Ruby structure like an array, but a proper model that represents a given entry’s data. Let’s start with generating the model – run `rails generate model Entry title:string date:date contents:text` to create an `Entry` model that can represent a diary entry with a title, a publication date and some contents.
+Web sitesi linklerini olması gereken yere taşıdıktan sonra, bişeyler de günlük verileri için yapalım. Bu sefer array gibi basit bir Ruby yapısı kullanmayacağız, girilen verileri bir model kullanarak kaydedeceğiz. Hadi modeli üreterek başlayalım – `rails generate model Entry title:string date:date contents:text` komutu girerek günlük verilerini bir etiket, bir yayınlama tarihi ve bir içerikten oluşan bir `Entry` modeli oluştururuz.
 
-__COACH__: Explain what models are and the `field:type` notation for generating them; explain the difference between `string` and `text` types if necessary.
+__EĞİTMEN__: Modeller nedir ve oluştururken kullanılan `field:type` notasyonu nedir açıklayın; gerek duyarsanız `string` ve `text` tipleri arasındaki farkı açıklayın.
 
-### Migrate the database
+### Veri tabanı migrasyonu
 
-Run `rails db:migrate` to migrate the database so that its structure contains a table for entries.
+`rails db:migrate` çalıştırarak veritabanına modelimizi tanıtırız. Modelin yapısında verilerimizi kayıt için bir tablo oluşur.
 
-__COACH__: Explain what databases are (in abstract terms, as vessels for storing our application’s data and providing model structures) and why they are needed. Explain that things which are in memory won’t get persisted by default and they need to be persisted explicitly to be available on the next request.
+__EĞİTMEN__: Veritabanlarının ne olduğunu ve onlara neden gerek olduğunu anlatın (Model yapısına bağlı kalarak uygulamamızın verilerini saklamak için kaplar gibi özel anlatımlarla). Bellekte olan şeylerin kalıcı olamayacağını ve tekrar gerektiğinde kullanmak için kalıcı olarak saklanması ihtiyacı  olduğunu anlatın.
 
-### Play with the model in the Rails console
+### Rails konsolda model ile çalışmak
 
-Now that we have a model, we can start creating instances of that model – i.e., actual diary entries that aren’t hard-coded in the HTML view. For this, we’ll learn a new tool: the Rails console. Start it with `rails console` and, once it boots and shows: you the `>>` prompt, create a few entries:
+Artık bir modelimiz var. Bu modelin oluşumlarını üretebiliriz (yani bu model yapısında veriler girebiliriz) – örneğin HTML görselde olan günlük girdileri. Bu amaçla yeni bir araç öğreneceğiz: Rails konsol. `rails console` yazarak çalıştırın size `>>` şeklinde bir prompt çıkar, birkaç giriş yapalım:
 
 {% highlight sh %}
->> Entry.create "title" => "Submitted a Rails Girls application", "date" => Date.new(2014, 2, 1), "contents" => "Just submitted an application to a Rails Girls workshop. Can’t wait to see whether I’ll get in!"
+>> Entry.create "title" => "Bir Rails Girls Uygulaması Gönderdim", "date" => Date.new(2014, 2, 1), "contents" => "Az önce Rails Girls atölyesine bir uygulama gönderdim. Beni alıp almayacaklarını sabırsızca bekliyorum!"
 …
->> Entry.create "title" => "Got in!", "date" => Date.new(2014, 2, 15), "contents" => "Received an email that my application got accepted! I’ll be at a RG workshop next week!"
+>> Entry.create "title" => "Alındım!", "date" => Date.new(2014, 2, 15), "contents" => "Uygulamamın kabul edildiğine dair bir email aldım! Önümüzdeki hafta RG atölyesinde olacağım!"
 …
->> Entry.create "title" => "The first day starts…", "date" => Date.new(2014, 2, 22), "contents" => "Today is the first day of the Rails Girls workshop. My coach is quite strange but it seems we all have Rails installed now and can start learning."
+>> Entry.create "title" => "Ve ilk gün başlar…", "date" => Date.new(2014, 2, 22), "contents" => "Bugün Rails Girls atölyesinin ilk günü. Eğitmenim biraz ilginç biri ama gördüğüm kadarıyla hepimizde Rails kuruldu ve öğrenmeye başlamaya hazırız."
 {% endhighlight %}
 
-Note how the console – just like `rails server` – shows you a log of what happens in the background. You can always get an array of all existing entries via `Entry.all`.
+Konsola dikkat edin – aynı `rails server` gibi – arkaplanda ne olduğunu size tek tek gösteriyor. Tüm girilen verileri bir array içinde almak için `Entry.all` komutu kullanabilirsiniz.
 
-__COACH__: Explain what’s going on. Slowly.
+__EĞİTMEN__: Çok yavaş olarak neler olduğunu anlatın.
 
-## Viewing the persisted contents
+## Kaydedilen içeriği göstermek
 
-### Add the model instances to the existing view
+### Model oluşumlarını mevcut görsele ekleyin
 
-Edit the `WelcomeController#index` action (in the `app/controllers/welcome_controller.rb` file) and add the following either before or after the lines containing `@websites` definition:
+`WelcomeController#index` aksiyonunu açın (`app/controllers/welcome_controller.rb` dosyası içinde) ve aşağıdaki kodu `@websites` tanımlamasının altına ya da üstüne bir yere yazın:
 
 {% highlight ruby %}
 @entries = Entry.all
 {% endhighlight %}
 
-Edit the `app/views/welcome/index.html.erb` view and replace the lines with the diary entries with the following:
+`app/views/welcome/index.html.erb` görsel dosyasını açın ve günlük yazılarının olduğu kısım yerine şunları yazın:
 
 {% highlight erb %}
 <% for entry in @entries %>
@@ -247,40 +247,40 @@ Edit the `app/views/welcome/index.html.erb` view and replace the lines with the 
 <% end %>
 {% endhighlight %}
 
-__COACH__: Discuss what happened; discuss what’s the order of the entries and how they can be reordered (say, by reverse date) and where it should happen.
+__EĞİTMEN__: Neler olduğunu açıklayın; girdilerin sıralaması nasıl, başka bir sıralama nasıl olur (mesela tarihe göre ters sıralı). Ve nerede yapılır bu iş?
 
-### Create a controller for diary entries
+### Günlük girdileri için bir kontrolör oluşturun
 
-Now that we have a model we need to create a controller for handling actions related to the instances of the model (creating new entries, showing, editing and deleting existing ones). Run `rails generate controller Entries` – this should generate the `EntriesController` class. Check `rake routes` – notice that the controller isn’t enough, we still need to point URLs to the controller’s actions.
+Artık bir modelimiz var, şimdi bu modelin oluşunlarını yönetmek için aksiyonlara ihtiyacımız var (yeni girdiler üretmek, göstermek, düzenlemek ve mevcut olanı silmek). Konsolda `rails generate controller Entries` – bu komutla `EntriesController` sınıfı oluşturulur. `rake routes` ile kontrol edin – dikkat ederseniz kontrolör yetersiz, hala kontrolör aksiyonlarını gösteren URL'lere ihtiyaç var.
 
-Edit `config/routes.rb` and add a `resources "entries"` line somewhere inside the `Diary::Application.routes.draw` block. Run `rake routes` again: notice how now your application has all kinds of new routes.
+`config/routes.rb` dosyasını açın ve `resources "entries"` satırını `Diary::Application.routes.draw` bloğu içinde bir yere ekleyin. Tekrar `rake routes` çalıştırın: dikkat ederseniz uyuglamanız artık tüm yeni route'lara sahip.
 
-__COACH__: Explain how Rails’ route resources work and how they make URLs spring to existence and map to controller actions by default.
+__EĞİTMEN__: Rails'in route yapısının çalışmasını ve her birinin mevcut kontrolör aksiyonlarına nasıl yönlendiğini anlatın.
 
-### A view of all the entries
+### Tüm girdiler için bir görsel
 
-As can be seen in the `rake routes` output, the URLs are wired to their relative controller actions. Let’s see what’s missing – visit [http://localhost:3000/entries](http://localhost:3000/entries) in your browser. Uh-oh, it seems like the ‘index’ action is missing – let’s add it – open `app/controllers/entries_controller.rb` and add the below empty method inside the class definition:
+`rake routes` çıktısında gördüğümüz gibi, URL'ler ilgili kontrolör aksiyonlarına bağlanıyor. Bakalım ne eksik – [http://localhost:3000/entries](http://localhost:3000/entries) adresini tarayıcınızda ziyaret edin. A-aaa, sanırım "index" aksiyonumuz yok – hadi ekleyelim – `app/controllers/entries_controller.rb` açın ve aşağıdaki boş metodu sınıf tanımlamasının içine ekleyin:
 
 {% highlight ruby %}
 def index
 end
 {% endhighlight %}
 
-Now refresh the browser – we no longer have an ‘unknown action’ problem, we now have a ‘template is missing’ problem. Save an empty file as `app/views/entries/index.html.erb` (note it’s just like the `index.html.erb` file in the ‘welcome’ directory before, but this time it’s in the ‘entries’ directory) and refresh the browser again – it should display an empty page. This is good, as our view is quite empty at the moment.
+Tarayıcıda sayfayı yenileyin – artık bir ‘unknown action’ problemimiz yok, şimdi de ‘template is missing’ problemi var. `app/views/entries/index.html.erb` adında boş bir dosya oluşturun (not, bu "welcome" klasörü altındaki `index.html.erb` dosyası gibi, fakat bu sefer "entries" klasörüaltında) ve sayfayı tekrar yenileyin – boş bir sayfa gelmeli. Doğrudur, çünkü görsel dosyamızın içi henüz boş.
 
-__COACH__: Explain how actions render the related views by default.
+__EĞİTMEN__: Aksiyonların ilgili görsel dosyalarını default olarak nasıl yayınladığını açıklayın.
 
-Now go to the `app/controllers/welcome_controller.rb` file and find the `WelcomeController#index` method (the one that starts with `def index`). Find the line that sets the `@entries` variable (it should start with `@entries =`) and copy it to `EntriesController#index` (so to the `index` method of the `EntriesController`, which can be found in `app/controllers/welcome_controller.rb`). Similarly, go to the `app/views/welcome/index.html.erb` view and copy the `@entries.each` block (all of the indented lines up to and including the matching `end`) to the `app/views/entries/index.html.erb` view. Refresh the browser: it should now show the list of all your diary entries.
+Şimdi `app/controllers/welcome_controller.rb` dosyasına gidin ve `WelcomeController#index` metodunu bulun (`def index` diye başlayan). `@entries` değişkenine değer girilen satırı bulun (`@entries =` diye başlayan yer) ve onu  `EntriesController#index` metoduna kopyalayın (yani `EntriesController` içindeki `ìndex` metodu, `app/controllers/entries_controller.rb` içinde bulunur). Benzer olarak `app/views/welcome/index.html.erb` görseline gidin ve `@entries.each` bloğunu (tüm içindeki satırlar ve `end` satırıyla beraber) `app/views/entries/index.html.erb` görseline kopyalayın. Sayfayı yenileyin: artık boş değil, türm girdilerin listesi çıkacaktır.
 
-__COACH__: Explain that even though this might look like little to no progress, there is a significant change: we’re no longer operating in the context of the main page of our app, but rather a list of diary entries only (without the links to other websites, for example).
+__EĞİTMEN__: İşe yaramayan küçük bir şey gibi görünmesine rağmen önemli bir değişiklik var: artık uygulama ana sayfamızın içeriğiyle değil sadece günlük girdilerinin listesiyle ilgilendiğimizi açıklayın (diğer web sitelerine limkler olamksızın, for example).
 
-### A view of a single entry
+### Tek bir girişin görseli
 
-Note how, when you run `rake routes`, the output says that the `/entries/:id(.:format)` pattern maps to the `entries#show` controller action. Go to [http://localhost:3000/entries/1](http://localhost:3000/entries/1) – the URL for your first diary entry; notice how we’re, again, missing an action of the `EntriesController`. Add that (empty for now) action, then refresh the browser and add the (likewise, empty) missing view.
+Dikkat ederseniz, `rake routes` çalıştırınca, çıktı `/entries/:id(.:format)` paterninde bir route `entries#show` aksiyonuna yönleniyor. [http://localhost:3000/entries/1](http://localhost:3000/entries/1) adresine gidin – ilk günlük girdinizin URL'si; karşımıza tekrar `EntriesController` içinde eksik bir aksiyon hata bildirisi çıkacaktır. Bu aksiyonu da ekleyin (şimdilik içi boş olarak), sonra sayfayı yenileyince ne olacak? görsel eksik hata mesajı.
 
-__COACH__: Guide through adding the missing action and view if needed; make sure the process (all the way from deciphering the right `rake routes` line) is well understood.
+__EĞİTMEN__: İhtiyaç olduğunda eksik aksiyon veya görselin eklenmesini tarif edin; prosesin tam anlaşıldığından emin olun (`rake routes` komutunun çıktısında görünen tüm route'lar nereleri gösterir) is well understood.
 
-Now, let’s figure out how to interpret the `1` from the end of the URL to display the right entry. Make the `EntriesController#show` action look like this:
+Şimdi URL sonundaki bu `1` bilgisini doğru veriyi seçmek için nasıl kullanırız. `EntriesController#show` aksiyonunun şöyle olmasını sağlayın:
 
 {% highlight ruby %}
 def show
@@ -288,7 +288,7 @@ def show
 end
 {% endhighlight %}
 
-This line means ‘take the `id` parameter and use it in the `Entry.find` method to find the right entry’. Now edit the `app/views/entries/show.html.erb` view and put there the following:
+Bu satırın anlamı "`id` parametresini al ve onu `Entry.find` metodunda kullanarak doğru veriyi bul". Şimdi `app/views/entries/show.html.erb` görselini üretin ve içine şunları yazın:
 
 {% highlight erb %}
 <h2><%= @entry.title %></h2>
@@ -296,66 +296,64 @@ This line means ‘take the `id` parameter and use it in the `Entry.find` method
   <p><%= @entry.contents %></p>
 {% endhighlight %}
 
-Visit [http://localhost:3000/entries/1](http://localhost:3000/entries/1) and compare it with [http://localhost:3000/entries/2](http://localhost:3000/entries/2) to see how using `params[’id’]` means that different diary entries get displayed.
+[http://localhost:3000/entries/1](http://localhost:3000/entries/1) sayfasını ziyeret edin ve [http://localhost:3000/entries/2](http://localhost:3000/entries/2) ile arasındaki farka bakarak `params[’id’]` ile farklı günlük girdilerinin gösterildiğini görün.
 
-__COACH__: Explain that the `:id` part of the URL template from `rake routes` is made into a key for the `params` hash; discuss what else can be found in the `params` hash.
+__EĞİTMEN__: `rake routes` de görülen URL bilgisinin `:id` parçası `params` hash listesine key olarak geliyor; `params` hash'i içinde başka ne bilgiler bulunabilir tartışın.
 
-### Linking entries
+### Girdilere link eklemek
 
-Run `rake routes` again; notice how the row for the `entries#show` action starts with `entry` in the ‘prefix’ column. Go to the `app/views/entries/index.html.erb` view and change the line responsible for displaying the title to the below:
+`rake routes` komutunu tekrar çalıştırın; 'preifx' sütununda `entry` olan `entries#show` satırına bakın. `app/views/entries/index.html.erb` görseline gidin ve etiketi gösteren satırı aşağıdaki gibi değiştirin:
 
 {% highlight erb %}
 <h2><%= link_to(entry.title, entry_path(entry)) %></h2>
 {% endhighlight %}
 
-Note how we use the `link_to` method that takes two parameters, the text to display (`entry.title`) and the path to link to. Check the source of the page to see what is the path for subsequent titles. Note how the path is created by calling the `entry_path` method with `entry` as its argument.
+`link_to` metodu iki parametre alır, gösterilecek yazı (`entry.title`) ve link bilgisi. Sayfa kaynağına bakarak listedeki başlıkların linklerinin nereler olduğuna bakın. `entry_path` metoduna `entry` argümanı verince linkler nasıl gelmiş.
 
-__COACH__: Remind how the HTML for links looks like. Explain the relation between `entry_path` and the `entry` prefix from `rake routes`. Explain why the `entry_path` method needs the `entry` argument. Explain what the `entry_url` method does (and how it differs from the `entry_path`  method) if you want to.
+__EĞİTMEN__: HTML linklerinin nasıl olduğunu hatırlatın. `entry_path` ve `rake routes` deki `entry` prefixli route arasındaki lişkiyi anlatın. `entry_path` metodunun neden `entry` argümanına ihtiyacı olduğunu açıklayın. İsterseniz `entry_url` metodunun ne yaptığını açıklayın (ve `entry_path` metodundan farklı ne yapar).
 
-Now let’s try to get back from an entry screen to the index of all entries: edit the `app/views/entries/show.html.erb` template and add a link to the entries index, like this:
+Şimdi girdiyi gösteren sayfadan ana listenin olduğu sayfaya geri dönüş ekleyelim: `app/views/entries/show.html.erb` görsel kalıbını açın ve index sayfasına bir link ekleyin:
 
 {% highlight erb %}
 <p><%= link_to("Back to all entries", entries_path) %></p>
 {% endhighlight %}
 
-Note, again, how the `entries` prefix from `rake routes` is used to construct the `entries_path` method name. Note how this method does not need a parameter.
+Noti yine prefix'i `entries` olan `rake routes` çıktı satırı `entries_path` metod ismini oluşturmak için kullanılmış. Bu metodun parametreye neden ihtiyacı olmadığını sorgulayın.
 
-## Creating entries via the UI
+## UI yoluyla yeni girdi oluşturmak
 
-### Adding the ‘new entry’ form
+### ‘new entry’ formu eklemek
 
-Now that we have a way to display a list of all entries and a single entry, let’s add a way to create new diary entries. Run `rake routes` and try to figure out which URL (and action) is responsible for new entry creation.
+Şu anda girdilerin bir listesini ve sadece bir girdiyi göstermek için yolumuz var, hadi yeni günlük girdisi oluşturmak için de bir yol ekleyelim. `rake routes` çalıştırıp yeni girdi oluşturma URL'si (ve aksiyonunu) bulun.
 
-Go to the index of all entries and add a link for creating new entry:
+Index sayfasına gidin ve yeni girdi için bir link ekleyin:
 
 {% highlight erb %}
 <%= link_to("New entry", new_entry_path) %>
 {% endhighlight %}
 
-Click the link – and add the missing action and view.
+Linke tıklayın – ve eksik olan aksiyonla görseli ekleyin.
 
-__COACH__: Make sure this process is well understood by now.
+__EĞİTMEN__: Bu prosesin doğru anlanmış olduğundan emin olun.
 
-Edit the `app/views/entries/new.html.erb` view and paste in the below:
+`app/views/entries/new.html.erb` dosyasını açın ve aşağıdakini yazın:
 
 {% highlight erb %}
 <%= form_for(Entry.new) do |form| %>
-  <p><%= form.label("title") %></p>
+  <p><%= form.label("Başlık") %></p>
   <p><%= form.text_field("title") %></p>
-  <p><%= form.label("contents") %></p>
+  <p><%= form.label("İçeriik") %></p>
   <p><%= form.text_area("contents") %></p>
-  <p><%= form.submit %></p>
+  <p><%= form.submit("Gönder") %></p>
 <% end %>
-<p><%= link_to("Back to all entries", entries_path) %></p>
+<p><%= link_to("Tüm kayıtlar listesine dön", entries_path) %></p>
 {% endhighlight %}
 
-**Note:** we can skip labels for now
+__EĞİTMEN__: `form_for` yardımcısı ile üretilen HTML kodunun neye benzediğini gösterin ve nasıl çalıştığını açıklamaya çalışın.
 
-__COACH__: Show how the HTML produced by the `form_for` helper looks like and try to explain how it works.
+### ‘new entry’ formunu işlemek
 
-### Handling the ‘new entry’ form
-
-Refresh the browser and try adding a new entry – you should see the well-known-by-now ‘unknown action’ error. Add the action to the `EntriesController`, but for starters let’s display what the action receives:
+Tarayıcıyı yenileyip formdan yeni bir günlük girin – artık çok iyi tanıdığınız ‘unknown action’ hatası alacaksınız. Aksiyonu `EntriesController` sınıfına ekleyin, fakat yeni başlayanlar için aksiyonun ne bilgiler aldığını gösterelim:
 
 {% highlight ruby %}
 def create
@@ -363,13 +361,13 @@ def create
 end
 {% endhighlight %}
 
-Refresh the browser and inspect what exactly the action gets as its params.
+Tarayıcıda sayfayı yenileyin ve aksiyonun parametre olarak neler aldığına bakın.
 
-__COACH__: Explain how filling a text field and a text area and submitting the form ends up with all the params being POSTed to the controller’s action. Explain what .inspect does.
+__EĞİTMEN__: Bir text field ve text area doldurup butona tıklayıp submit ederek kontrolör aksiyonuna POST işlemi ile gönderilmesinin parametrelere nasıl yansıdığını anlatın. ".inspect" metodu ne iş yapar açıklayın.
 
-### Creating and persisting the new entry
+### Yeni girdi oluşturma ve kaydetme
 
-Edit the `create` action and make it look like this:
+`create` aksiyonunu düzenleyerek şu hale getirin:
 
 {% highlight ruby %}
 def create
@@ -379,41 +377,43 @@ def create
 end
 {% endhighlight %}
 
-Note how we try to get the parameters of the new entry (its title and contents) from the `params` hash and then create a new entry from them, just like in the console. Try submitting the form again – notice that we’re still not there yet, as we get a `ActiveModel::ForbiddenAttributesError`.
+`params` hash değişkeninden yeni girdinin parametrelerini (etiketi ve içeriği) nasıl aldığımıza ve onlarla aynı konsoldaki gibi nasıl yeni bir girdi oluşturduğumuza dikkat edin. Formu tekrar göndermeyi deneyin fakat hala bir hata var `ActiveModel::ForbiddenAttributesError`.
 
-- Note: we can skip strong_parameters in the beginning, keeping the application not secure from parameter injection.
+- Not: strong_parameters'i en başta iptal edebilirdik in the beginning, uygulamayı parametre enjeksiyonundan koruyarak.
 - config.action_controller.permit_all_parameters = true
-- ^^ yeah, but it will be removed soon.
-- maybe not before workshops ;)
+- ^^ evet, ama yakında uzaklaştırılacak.
+- belki atölye çalışması bitmeden ;)
 
-This error is because of security measures – it’s relatively simple to POST whatever parameters a user wants to, and Rails protects us from a rogue user that would want to set parameters that they’re not supposed to set (like ‘id’). We need to declare which parameters can be set by the user; change the first line of the `create` action to the below:
+Bu hata güvenlik kuralları yüzünden geldi – bu basit bir POST ve kullanıcı oraya ne isterse girebilir, Rails bizi ayarlaması beklenmeyen parametreleri değiştirmek isteyen ('id' gibi) kötü niyetli kullanıcılardan bizi koruyor. Kullanıcının hangi parametreleri girebileceğini kısıtlamamız gerekiyor; `create` aksiyonunun ilk satırını şöyle değiştirin:
 
 {% highlight ruby %}
 entry_params = params["entry"].permit("title", "contents")
 {% endhighlight %}
 
-Now try submitting the form again – this time it should work and you should get redirected to the newly-created entry.
+Şimdi formu tekrar göndermeyi deneyin – bu sefer çalışacak ve yeni girilen veriyi gösteren sayfaya yönlendirileceksiniz.
 
-__COACH__: Make sure the plucking of the new entry’s parameters from `params` is well understood and that it’s accepted that certain fields need to be permitted explicitly.
-Editing via the UI
+__EĞİTMEN__: `params` içinden doğru parametrelerin çekilmesi mantığının iyi anlaşıldığından emin olun ve gereken parametrelerin özel olarak seçilmesi gereğini anlatın.
 
-### Adding the ‘edit entry’ form
 
-Now that we can view and create entries, let’s also add the option to edit them. Run `rake routes` and try to guess which route is responsible for editing an entry.
+## UI ile girdi düzenleme
 
-__COACH__: Make sure this is well understood by now.
+### ‘edit entry’ formu eklemek
 
-Edit the `app/views/entries/show.html.erb` view and add the below line somewhere:
+Şu anda girdileri görebiliyor ve yenisini ekleyebiliyoruz, hadi mevcut olanı düzenlemenin bir yolunu da ekleyelim. `rake routes` çalıştırın ve bir girdiyi edit etmek için gereken route satırını bulun.
+
+__EĞİTMEN__: Bu konun iyi anlaşıldığından emin olun.
+
+`app/views/entries/show.html.erb` dosyasını açın ve aşağıdaki linki biryerlere ekleyin:
 
 {% highlight erb %}
-<p><%= link_to("Edit this entry", edit_entry_path(@entry)) %></p>
+<p><%= link_to("Bu gönderiyi düzenle", edit_entry_path(@entry)) %></p>
 {% endhighlight %}
 
-Refresh a given entry’s view and click the link. Add the missing action and an empty view.
+Girdi görüntülediğiniz sayfayı yenileyin ve düzenlemek için linke tıklayın. Eksik olan aksiyonu ve boş bir görsel dosyasını ekleyin.
 
-__COACH__: Again, make sure this is well understood.
+__EĞİTMEN__: Bunun da tam anlaşıldığından emin olun.
 
-Let’s first make sure our `edit` action exposes the right entry to the view. Make sure the `edit` action looks just like the `show` action – i.e., it grabs the right entry based on the id from the URL:
+İlk önce `edit` aksiyonunun doğru girdiyi aldığından emin olalım. `show` aksiyonunda olanın aynısını `edit` aksiyonu da yapsın – yani verilen URL'den id'sini alsın:
 
 {% highlight ruby %}
 def edit
@@ -421,23 +421,23 @@ def edit
 end
 {% endhighlight %}
 
-Now copy the contents of the `app/views/entries/new.html.erb` view to the `app/views/entries/edit.html.erb` view, but change the first line so that it’s a form for this particular entry – and, optionally, add a link back to this entry’s show screen:
+Şimdi `app/views/entries/new.html.erb` görselinin içeriğini `app/views/entries/edit.html.erb` görseline kopyalayın, ama sadece ilk satırı değiştirerek sözkonusu girdi bilgilerini işleyeceğini belirtin – ve opsiyonel olarak bu girdinin gösterildiği sayfaya bir geri link ekleyin:
 
 {% highlight erb %}
 <%= form_for(@entry) do |form| %>
-  <p><%= form.label("title") %></p>
+  <p><%= form.label("Başlık") %></p>
   <p><%= form.text_field("title") %></p>
-  <p><%= form.label("contents") %></p>
+  <p><%= form.label("İçerik") %></p>
   <p><%= form.text_area("contents") %></p>
   <p><%= form.submit %></p>
 <% end %>
-<p><%= link_to("Back to this entry", entry_path(@entry)) %></p>
-<p><%= link_to("Back to all entries", entries_path) %></p>
+<p><%= link_to("Bu girdiye geri dön", entry_path(@entry)) %></p>
+<p><%= link_to("Tüm kayıtlar listesine dön", entries_path) %></p>
 {% endhighlight %}
 
-__COACH__: Make sure all of this is well understood.
+__EĞİTMEN__: Tüm bunların iyi anlaşıldığından emin olun.
 
-Now try to submit the form – which action is still missing? Create it in the controller:
+Şimdi formu göndermeyi deneyin – hangi aksiyon hala kayıp? Kontrolör içine ekleyin:
 
 {% highlight ruby %}
 def update
@@ -448,23 +448,23 @@ def update
 end
 {% endhighlight %}
 
-Check whether this all works and whether you can now edit the entries.
+Herşeyin çalıştığını ve girdiyi düzenleyebildiğinizi kontrol edin.
 
-__COACH__: Make sure the `update` action’s contents are well understood – from permitting params through finding entries to redirecting to the right path.
+__EĞİTMEN__: `update` aksiyonu içeriğinin iyi anlaşıldığından emin olun – parametrelerin kısıtlayarak seçilmesinden doğru girdinin düzenlenmesine ve girdi gösterim sayfasına geri yönlendirilmesine kadar.
 
-## Further ideas
+## Başka fikirler
 
-Play with your application! Here are some further ideas you might want to add:
+Uygulamanızla oynayın. İşte size eklenebilecek bazı başka özellikler:
 
-- extract form to a partial
-- links for editing an entry straight from the index of entries,
-- a way to delete an entry,
-- a way to edit entry dates,
-- a model for tracking website URLs and names (the list on the main page),
-- setting entry dates to the future and not displaying future entries in the index until their day comes,
-- automatic embedding of video URLs,
-- support for different entry authors,
-- support for different categories of entries,
-- upload and display of images.
+- Formu parça form olarak işlemek
+- Girdileri düzenleme linklerini ana liste sayfasına eklemek,
+- bir girdiyi silme yolu,
+- gönderi tarihlerini düzenleme seçeneği,
+- Web siteleri URL'lerini ve isimlerini saklamak için bir model oluşturmak (ana sayfada bulunan liste),
+- Gönderi tarihini ileri bir tarihe ayarlamak ve index listede tarihi gelmemiş gönderileri göstermemek,
+- video URL'lerinin gönderi içeriğine otomatik eklenmesi,
+- birden fazla yazarın girdisine imkan tanımak,
+- girdilere kategorize etme özelliği eklenmesi,
+- resimler eklenmesi ve gösterilmesi.
 
 {% include other-guides.md page="diary-app" %}
